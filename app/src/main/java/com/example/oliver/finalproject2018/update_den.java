@@ -3,6 +3,7 @@ package com.example.oliver.finalproject2018;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,10 +33,9 @@ public class update_den extends Fragment {
     EditText den_hCard;
     EditText den_descri;
 
-    RadioButton br_yes;
-    RadioButton br_no;
-    RadioButton hl_yes;
-    RadioButton hl_no;
+    EditText den_hstat;
+    EditText den_bstat;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,28 +53,54 @@ public class update_den extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
 
+
+        den_name=getActivity().findViewById(R.id.u_den_pat_name);
+        den_address=getView().findViewById(R.id.u_den_pat_address);
+        den_descri=getView().findViewById(R.id.u_den_pat_description);
+        den_birth=getView().findViewById(R.id.u_den_pat_birthday);
+        den_hCard=getView().findViewById(R.id.u_den_pat_health_number);
+        den_phone=getView().findViewById(R.id.u_den_pat_phone_number);
+
+       den_hstat=getView().findViewById(R.id.u_den_pat_HStat);
+       den_bstat=getView().findViewById(R.id.u_den_pat_bStat);
+
+        PatientDatabaseHelper pb1=new PatientDatabaseHelper(getContext());
+        SQLiteDatabase db1=pb1.getWritableDatabase();
+
+        Cursor cursor=db1.rawQuery("SELECT * FROM DEN_PATIENT WHERE _id = "+String.valueOf(getArguments().getInt("den_ID")),null);
+
+        cursor.moveToFirst();
+            den_name.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_DEN_NAME)));
+            den_address.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_ADDRESS)));
+            den_birth.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
+//            den_descri.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_DESCRIPTION)));
+            den_hCard.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_HEALTH_CARD)));
+            den_phone.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_PHONE)));
+//            den_bstat.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BRACES)));
+ //           den_hstat.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_HEALTH_BENFIT)));
+
+            Button den_clear_btn=getView().findViewById(R.id.den_pat_clear);
+                    den_clear_btn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            den_name.setText("");
+                            den_address.setText("");
+                            den_birth.setText("");
+                            den_descri.setText("");
+                            den_hCard.setText("");
+                            den_phone.setText("");
+                            den_bstat.setText("");
+                            den_bstat.setText("");
+                        }
+                    });
+
+
+
         Button Sub_btn=getView().findViewById(R.id.den_submit);
 
         Sub_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
-
-                        den_name=getActivity().findViewById(R.id.den_pat_name);
-                        den_address=getView().findViewById(R.id.den_pat_address);
-                        den_descri=getView().findViewById(R.id.den_pat_description);
-                        den_birth=getView().findViewById(R.id.den_pat_birthday);
-                        den_hCard=getView().findViewById(R.id.den_pat_health_number);
-                        den_phone=getView().findViewById(R.id.den_pat_phone_number);
-
-                        br_yes=getView().findViewById(R.id.den_yes_braces);
-                        br_no=getView().findViewById(R.id.den_no_braces);
-                        hl_yes=getView().findViewById(R.id.den_yes_hbenefit);
-                        hl_no=getView().findViewById(R.id.den_no_hbenefit);
-
-
 
                         PatientDatabaseHelper pb=new PatientDatabaseHelper(getContext());
                         SQLiteDatabase db=pb.getWritableDatabase();
@@ -87,13 +113,9 @@ public class update_den extends Fragment {
                         cv.put(PatientDatabaseHelper.COLUMN_HEALTH_CARD,den_hCard.getText().toString());
                         cv.put(PatientDatabaseHelper.COLUMN_PHONE,den_phone.getText().toString());
 
-                        if(br_yes.isChecked())
-                            cv.put(PatientDatabaseHelper.COLUMN_BRACES,"Yes");
-                        else cv.put(PatientDatabaseHelper.COLUMN_BRACES,"No");
+                        cv.put(PatientDatabaseHelper.COLUMN_HEALTH_BENFIT,den_hstat.getText().toString());
+                        cv.put(PatientDatabaseHelper.COLUMN_BRACES,den_hstat.getText().toString());
 
-                        if(hl_yes.isChecked())
-                            cv.put(PatientDatabaseHelper.COLUMN_HEALTH_BENFIT,"Yes");
-                        else cv.put(PatientDatabaseHelper.COLUMN_HEALTH_BENFIT,"No");
 
 
                         db.insert(PatientDatabaseHelper.TABLE_DEN_PATIENT,null,cv);
