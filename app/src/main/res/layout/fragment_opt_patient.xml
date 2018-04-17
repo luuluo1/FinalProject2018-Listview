@@ -1,0 +1,124 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/opt_frag_layout"
+        android:layout_height="match_parent" android:layout_width="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/input_name"
+            />
+
+        <EditText
+            android:id="@+id/opt_pat_name"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:textSize="15dp"
+
+            />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/input_address"
+            />
+
+        <EditText
+            android:id="@+id/opt_pat_address"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:textSize="15dp"
+            />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/input_birthday" />
+
+        <EditText
+            android:id="@+id/opt_pat_birthday"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:textSize="15dp"
+            android:hint="@string/input_birthday1" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/input_phone_number" />
+
+        <EditText
+            android:id="@+id/opt_pat_phone_number"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:textSize="15dp"
+            />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/input_Health_number" />
+
+        <EditText
+            android:id="@+id/opt_pat_health_number"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/input_description" />
+
+        <EditText
+            android:id="@+id/opt_pat_description"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:textSize="15dp"/>
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/input_glasses_purchase_Date" />
+
+        <EditText
+            android:id="@+id/opt_pat_glasses_purchase_Date"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:textSize="15dp"
+            />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/glasses_store" />
+
+        <EditText
+            android:id="@+id/opt_pat_glasses_store"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:textSize="15dp"
+            />
+
+        <Button android:id="@+id/opt_submit"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/Submit"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>
+

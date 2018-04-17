@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.oliver.finalproject2018.opt_view_tiem">
+
+
+    <TextView
+        android:id="@+id/Item_view_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_columnWeight="3"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/Item_view_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:layout_columnWeight="3"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/Update_buttton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:layout_columnWeight="1"
+        android:text="@string/Update"
+        />
+
+    <Button
+        android:id="@+id/Delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_columnWeight="1"
+        android:layout_row="1"
+        android:text="@string/delete" />
+</GridLayout>

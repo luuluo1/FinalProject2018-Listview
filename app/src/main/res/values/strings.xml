@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">FinalProject2018</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="add_patients">What type of patient do you want to add?</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>>
+
+
+    <string name="doc_pat">Doctor’s office</string>
+    <string name="den_pat">"Dentist Patients"</string>
+    <string name="opt_pat">"Optometrist"</string>
+    <string name="title_activity_pif_doc_patientlist">"Doctor"</string>
+    <string name="add_patient">"Add new Patient"</string>
+    <string name="title_activity_pif_opt_patient_list">"Optometrist"</string>
+    <string name="title_activity_pif_den_patientlist">Dental</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_doc_patient_detail">Doc_patient_detail</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="patient_name">"Patient name"</string>
+    <string name="input_name">"Name"</string>
+    <string name="input_address">"Address"</string>
+    <string name="input_birthday">"Birthday"</string>
+    <string name="input_birthday1">"xxxx/xx/xx"</string>
+
+    <string name="input_phone_number">"Phone number"</string>
+    <string name="input_Health_number">"Health Car Number"</string>
+    <string name="input_description">"Description"</string>
+    <string name="input_previous_surg">"Previous surgies"</string>
+    <string name="input_allergies">"Allergies"</string>
+    <string name="Submit">"Submit"</string>
+
+
+    <string name="input_glasses_purchase_Date">"When was this pair of glasses purchased?"</string>
+    <string name="glasses_store">"Which store was it purchased from?"</string>
+
+    <string name="input_has_Braces">"Do you have braces?"</string>
+    <string name="input_has_H_benefits">"Do you have health benefits?"</string>
+
+    <string name="input_yes">"Yes"</string>
+    <string name="input_no">"No"</string>
+
+    <string name="den_yes_healthb">"Yes"</string>
+    <string name="den_no_healthb">"No"</string>
+    <string name="Update">"Update"</string>
+    <string name="delete">"Delete"</string>
+
+</resources>

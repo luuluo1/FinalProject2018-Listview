@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.oliver.finalproject2018">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".PIF_StartActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".pif_opt_patientList"
+            android:label="@string/title_activity_pif_opt_patient_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".pif_doc_patientlist"
+            android:label="@string/title_activity_pif_doc_patientlist"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".pif_den_patientlist"
+            android:label="@string/title_activity_pif_den_patientlist"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".add_den_p" />
+        <activity android:name=".add_doc_p" />
+        <activity android:name=".add_opt_p" />
+        <activity android:name=".opt_view_tiem" />
+        <activity android:name=".add_update_den" />
+        <activity android:name=".add_update_opt" />
+        <activity android:name=".add_update_doc"></activity>
+    </application>
+
+</manifest>
