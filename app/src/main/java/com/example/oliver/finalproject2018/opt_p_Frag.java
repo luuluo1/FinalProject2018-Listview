@@ -47,7 +47,32 @@ public class opt_p_Frag extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Button sub_btn=getView().findViewById(R.id.opt_submit);
 
+        Button clear_btn=getView().findViewById(R.id.opt_pat_clear);
 
+        opt_name=getActivity().findViewById(R.id.opt_pat_name);
+        opt_address=getView().findViewById(R.id.opt_pat_address);
+        opt_birth=getView().findViewById(R.id.opt_pat_birthday);
+        opt_hCard=getView().findViewById(R.id.opt_pat_health_number);
+        opt_glass=getView().findViewById(R.id.opt_pat_glasses_purchase_Date);
+        opt_store=getView().findViewById(R.id.opt_pat_glasses_store);
+        opt_description=getView().findViewById(R.id.opt_pat_description);
+        opt_phone=getView().findViewById(R.id.opt_pat_phone_number);
+
+        clear_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                opt_name.setText("");
+                opt_address.setText("");
+                opt_birth.setText("");
+                opt_hCard.setText("");
+                opt_glass.setText("");
+                opt_hCard.setText("");
+                opt_phone.setText("");
+                opt_store.setText("");
+
+            }
+        });
 
       sub_btn.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -59,7 +84,7 @@ public class opt_p_Frag extends Fragment {
               opt_hCard=getView().findViewById(R.id.opt_pat_health_number);
               opt_glass=getView().findViewById(R.id.opt_pat_glasses_purchase_Date);
               opt_store=getView().findViewById(R.id.opt_pat_glasses_store);
-              opt_description=getView().findViewById(R.id.opt_pat_description);
+              opt_description=getActivity().findViewById(R.id.opt_pat_description);
               opt_phone=getView().findViewById(R.id.opt_pat_phone_number);
 
 

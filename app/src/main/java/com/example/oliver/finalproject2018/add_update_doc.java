@@ -10,8 +10,17 @@ public class add_update_doc extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_update_doc);
+
+
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.f_holder,new update_doc());
+        int id=getIntent().getExtras().getInt("EXTRA_SESSION_ID");
+        update_doc ud=new update_doc();
+
+        ud.setdocId(id);
+
+
+    //     ft.replace(R.id.doc_u_holder,ud);
+
         ft.commit();
     }
 }

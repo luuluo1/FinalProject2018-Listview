@@ -2,6 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:id="@+id/f_opt"
     >
 
     <LinearLayout
@@ -112,11 +114,26 @@
             android:textSize="15dp"
             />
 
-        <Button android:id="@+id/opt_submit"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:text="@string/Submit"
-            />
+            android:layout_height="wrap_content">
+            <Button android:id="@+id/opt_submit"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/Submit"
+                />
+            <Button
+                android:id="@+id/opt_pat_clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pat_clear" />
+            <Button
+                android:id="@+id/opt_load_int"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/load_internet" />
+        </LinearLayout>
 
     </LinearLayout>
 

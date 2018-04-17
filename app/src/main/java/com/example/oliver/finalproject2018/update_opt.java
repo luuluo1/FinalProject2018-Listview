@@ -75,27 +75,37 @@ public class update_opt extends Fragment {
         opt_store=getActivity().findViewById(R.id.opt_pat_glasses_store);
         opt_description=getActivity().findViewById(R.id.opt_pat_description);
         opt_phone=getActivity().findViewById(R.id.opt_pat_phone_number);
-    //    opt_name.setText("          Patient ID is : "+String.valueOf(id)
-
-String a="";
 
         Cursor cursor= dbS.rawQuery("SELECT * FROM OPT_PATIENT WHERE _id="+String.valueOf(id),null);
 
         cursor.moveToFirst();
 
-            opt_name.setHint(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_OPT_NAME)));
-            opt_address.setHint(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_ADDRESS)));
-            opt_birth.setHint(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
-            opt_hCard.setHint(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
-        //   opt_description.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_DESCRIPTION)));
-            opt_phone.setHint(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_PHONE)));
-            opt_glass.setHint(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_GLASSES_PURCHASE_DATE)));
-            opt_store.setHint(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_GLASSES_STORE)));
-            cursor.moveToNext();
-      //      a=cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_OPT_NAME));
+            opt_name.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_OPT_NAME)));
+            opt_address.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_ADDRESS)));
+            opt_birth.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
+            opt_hCard.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
+        //    opt_description.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_DESCRIPTION)));
+            opt_phone.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_PHONE)));
+            opt_glass.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_GLASSES_PURCHASE_DATE)));
+            opt_store.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_GLASSES_STORE)));
+
+            Button clear_btn=getView().findViewById(R.id.opt_pat_clear);
+            clear_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    opt_name.setText("");
+                    opt_address.setText("");
+                    opt_birth.setText("");
+                    opt_hCard.setText("");
+                    opt_glass.setText("");
+                    opt_hCard.setText("");
+                    opt_phone.setText("");
+                    opt_store.setText("");
+
+                }
+            });
 
 
-  //      p_id.setText(a);
 
         sub_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,8 +117,6 @@ String a="";
                 PatientDatabaseHelper pdh=new PatientDatabaseHelper(getContext());
                 ContentValues cv=new ContentValues();
                 SQLiteDatabase db=pdh.getWritableDatabase();
-
-
 
                 cv.put(PatientDatabaseHelper.COLUMN_OPT_NAME,opt_name.getText().toString());
                 cv.put(PatientDatabaseHelper.COLUMN_ADDRESS,opt_address.getText().toString());

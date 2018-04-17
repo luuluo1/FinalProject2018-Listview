@@ -9,7 +9,7 @@
 
     <fragment
         android:name="com.example.oliver.finalproject2018.doc_p_Frag"
-        android:id="@+id/f_holder"
+        android:id="@+id/doc_u_holder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </RelativeLayout>

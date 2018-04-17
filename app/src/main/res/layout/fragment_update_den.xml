@@ -1,7 +1,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent"
+    android:id="@+id/f_u_den"
     tools:context="com.example.oliver.finalproject2018.update_den">
 
     <!-- TODO: Update blank fragment layout -->
@@ -18,7 +20,7 @@
             android:text="@string/input_name" />
 
         <EditText
-            android:id="@+id/den_pat_name"
+            android:id="@+id/u_den_pat_name"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:textSize="15dp"
@@ -31,9 +33,9 @@
             android:text="@string/input_address" />
 
         <EditText
-            android:id="@+id/den_pat_address"
+            android:id="@+id/u_den_pat_address"
             android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:layout_height="33dp"
             android:textSize="15dp"
             />
 
@@ -44,7 +46,7 @@
             android:text="@string/input_birthday" />
 
         <EditText
-            android:id="@+id/den_pat_birthday"
+            android:id="@+id/u_den_pat_birthday"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:hint="@string/input_birthday1"
@@ -58,7 +60,7 @@
             android:text="@string/input_phone_number" />
 
         <EditText
-            android:id="@+id/den_pat_phone_number"
+            android:id="@+id/u_den_pat_phone_number"
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:textSize="15dp"
@@ -71,9 +73,9 @@
             android:text="@string/input_Health_number" />
 
         <EditText
-            android:id="@+id/den_pat_health_number"
+            android:id="@+id/u_den_pat_health_number"
             android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:layout_height="33dp"
             android:textSize="15dp"
             />
 
@@ -86,9 +88,9 @@
             />
 
         <EditText
-            android:id="@+id/den_pat_description"
+            android:id="@+id/u_den_pat_description"
             android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:layout_height="33dp"
             android:textSize="15dp"
             />
 
@@ -98,22 +100,14 @@
             android:layout_height="wrap_content"
             android:text="@string/input_has_Braces" />
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="22dp">
-            <RadioGroup android:orientation="horizontal">
-                <RadioButton
-                    android:id="@+id/den_yes_braces"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/input_yes" />
+        <EditText
+            android:id="@+id/u_den_pat_bStat"
+            android:layout_width="300dp"
+            android:layout_height="33dp"
+            android:textSize="15dp"
+            />
 
-                <RadioButton
-                    android:id="@+id/den_no_braces"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/input_no" /></RadioGroup>
-        </GridLayout>
+
 
         <TextView
             android:id="@+id/textView8"
@@ -121,28 +115,31 @@
             android:layout_height="wrap_content"
             android:text="@string/input_has_H_benefits" />
 
-        <GridLayout
-            android:layout_width="match_parent"
+
+        <EditText
+            android:id="@+id/u_den_pat_HStat"
+            android:layout_width="300dp"
+            android:layout_height="33dp"
+            android:textSize="15dp"
+            />
+
+            <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <RadioGroup android:orientation="horizontal">
-                <RadioButton
-                    android:id="@+id/den_yes_hbenefit"
+                <Button
+                    android:id="@+id/den_submit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/input_yes" />
-
-                <RadioButton
-                    android:id="@+id/den_no_hbenefit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/input_no" /></RadioGroup>
-
-            <Button
-                android:id="@+id/den_submit"
-                android:layout_width="wrap_content"
+                    android:text="@string/Submit" />
+                <Button
+                android:id="@+id/den_pat_clear"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Submit" />
-        </GridLayout>
+                android:text="@string/pat_clear" />
+        </LinearLayout>
+
+
 
 
     </LinearLayout>

@@ -8,7 +8,7 @@
 
     <fragment
         android:name="com.example.oliver.finalproject2018.den_p_Frag"
-        android:id="@+id/add_fragment_holder"
+        android:id="@+id/den_u_holder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

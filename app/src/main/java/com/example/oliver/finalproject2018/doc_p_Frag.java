@@ -61,7 +61,7 @@ public class doc_p_Frag extends Fragment    {
 
         dTxtName=getActivity().findViewById(R.id.pat_name);
 
-        dDescr=getView().findViewById(R.id.doc_pat_description);
+        dDescr=getActivity().findViewById(R.id.doc_pat_description);
         dAllergy=getView().findViewById(R.id.doc_pat_allergies);
         dTxtAddress=getView().findViewById(R.id.doc_pat_address);
         dTxtBirth=getView().findViewById(R.id.doc_pat_birthday);

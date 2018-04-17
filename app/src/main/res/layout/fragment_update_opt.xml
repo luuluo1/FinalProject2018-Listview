@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.oliver.finalproject2018.update_opt">
+    tools:context="com.example.oliver.finalproject2018.update_opt"
+    android:id="@+id/f_u_opt">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -128,12 +129,21 @@
             android:textSize="15dp"
             />
 
+        <LinearLayout
+            android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
         <Button android:id="@+id/opt_submit"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="@string/Submit"
             />
-
+            <Button
+                android:id="@+id/opt_pat_clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pat_clear" />
+             </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>

@@ -3,6 +3,7 @@ package com.example.oliver.finalproject2018;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,8 +30,12 @@ public class update_doc extends Fragment {
     EditText dDescr;
     EditText dPre;
     EditText dAllergy;
-
+    int id;
     private Doc_patientDao doc_patientDao;
+
+    public void setdocId(int id) {
+        this.id = id;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,19 +56,54 @@ public class update_doc extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        super.onViewCreated(view, savedInstanceState);
-        Button sub_btn=getView().findViewById(R.id.doc_submit);
+       // super.onViewCreated(view, savedInstanceState);
+        Button sub_btn=getView().findViewById(R.id.u_doc_submit);
 
 
-        dTxtName=getActivity().findViewById(R.id.pat_name);
+        dTxtName=getActivity().findViewById(R.id.u_pat_name);
 
-        dDescr=getActivity().findViewById(R.id.doc_pat_description);
-        dAllergy=getActivity().findViewById(R.id.doc_pat_allergies);
-        dTxtAddress=getActivity().findViewById(R.id.doc_pat_address);
-        dTxtBirth=getActivity().findViewById(R.id.doc_pat_birthday);
-        dPre=getActivity().findViewById(R.id.doc_pat_previous_surg);
-        dTxtPhone=getActivity().findViewById(R.id.doc_pat_phone_number);
-        dTxtHCard=getActivity().findViewById(R.id.doc_pat_health_number);
+        dDescr=getActivity().findViewById(R.id.u_doc_pat_description);
+        dAllergy=getActivity().findViewById(R.id.u_doc_pat_allergies);
+        dTxtAddress=getActivity().findViewById(R.id.u_doc_pat_address);
+        dTxtBirth=getActivity().findViewById(R.id.u_doc_pat_birthday);
+        dPre=getActivity().findViewById(R.id.u_doc_pat_previous_surg);
+        dTxtPhone=getActivity().findViewById(R.id.u_doc_pat_phone_number);
+        dTxtHCard=getActivity().findViewById(R.id.u_doc_pat_health_number);
+
+        PatientDatabaseHelper pd1=new PatientDatabaseHelper(getContext());
+        SQLiteDatabase db1=pd1.getWritableDatabase();
+
+
+        Cursor cursor=db1.rawQuery("SELECT * FROM DOC_PATIENT WHERE _id = "+String.valueOf(id),null);
+
+        cursor.moveToFirst();
+                dTxtName.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_DOC_NAME)));
+//                dDescr.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_DESCRIPTION)));
+                dPre.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_SURGERIES)));
+                dTxtPhone.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_PHONE)));
+                dTxtBirth.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
+                dTxtHCard.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_HEALTH_CARD)));
+                dAllergy.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_ALERGIES)));
+                dTxtAddress.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_ADDRESS)));
+
+
+
+        Button b1=getView().findViewById(R.id.U_doc_pat_clear);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dTxtName.setText("");
+                dDescr.setText("");
+                dPre.setText("");
+                dTxtPhone.setText("");
+                dTxtBirth.setText("");
+                dTxtHCard.setText("");
+                dAllergy.setText("");
+                dTxtAddress.setText("");
+
+            }
+        });
+
 
 
         sub_btn.setOnClickListener(new View.OnClickListener() {

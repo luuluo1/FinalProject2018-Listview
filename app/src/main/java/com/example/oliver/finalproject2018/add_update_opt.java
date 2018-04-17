@@ -14,11 +14,7 @@ public class add_update_opt extends FragmentActivity {
         setContentView(R.layout.activity_add_update_opt);
 
         int id=getIntent().getExtras().getInt("EXTRA_SESSION_ID");
-
-        TextView t1=findViewById(R.id.update_tttt);
         String a=String.valueOf(id);
-        t1.setText(a);
-
         Bundle b1=new Bundle();
         b1.putString("sss1",a);
 
@@ -27,7 +23,7 @@ public class add_update_opt extends FragmentActivity {
 
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         uo.setPatientId(id);
-        ft.replace(R.id.a_opt_holder,uo);
+        ft.replace(R.id.pt_u_holder,uo);
         ft.commit();
     }
 }

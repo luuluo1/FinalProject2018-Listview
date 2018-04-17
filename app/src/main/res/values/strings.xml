@@ -16,7 +16,7 @@
     <string name="title_activity_pif_opt_patient_list">"Optometrist"</string>
     <string name="title_activity_pif_den_patientlist">Dental</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_doc_patient_detail">Doc_patient_detail</string>
     <string name="action_settings">Settings</string>
@@ -49,5 +49,9 @@
     <string name="den_no_healthb">"No"</string>
     <string name="Update">"Update"</string>
     <string name="delete">"Delete"</string>
+
+
+    <string name="pat_clear">"Clean"</string>
+    <string name="load_internet">"Load from internet"</string>
 
 </resources>

@@ -23,7 +23,7 @@ import com.example.oliver.finalproject2018.dummy.PatientDatabaseHelper;
 
 public class update_den extends Fragment {
 
-
+    int id;
     public static final String TAG="A";
 
     EditText den_name;
@@ -36,6 +36,15 @@ public class update_den extends Fragment {
     EditText den_hstat;
     EditText den_bstat;
 
+    public void setdenId(int id) {
+        this.id = id;
+    }
+
+
+    public int getdenId() {
+
+        return id;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,8 +60,7 @@ public class update_den extends Fragment {
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
 
 
-        super.onViewCreated(view, savedInstanceState);
-
+  //      super.onViewCreated(view, savedInstanceState);
 
         den_name=getActivity().findViewById(R.id.u_den_pat_name);
         den_address=getView().findViewById(R.id.u_den_pat_address);
@@ -67,7 +75,7 @@ public class update_den extends Fragment {
         PatientDatabaseHelper pb1=new PatientDatabaseHelper(getContext());
         SQLiteDatabase db1=pb1.getWritableDatabase();
 
-        Cursor cursor=db1.rawQuery("SELECT * FROM DEN_PATIENT WHERE _id = "+String.valueOf(getArguments().getInt("den_ID")),null);
+        Cursor cursor=db1.rawQuery("SELECT * FROM DEN_PATIENT WHERE _id = "+String.valueOf(id),null);
 
         cursor.moveToFirst();
             den_name.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_DEN_NAME)));

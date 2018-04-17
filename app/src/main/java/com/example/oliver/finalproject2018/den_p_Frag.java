@@ -71,7 +71,7 @@ public class den_p_Frag extends Fragment {
 
                 den_name=getActivity().findViewById(R.id.den_pat_name);
                 den_address=getView().findViewById(R.id.den_pat_address);
-                den_descri=getView().findViewById(R.id.den_pat_description);
+                den_descri=getActivity().findViewById(R.id.den_pat_description);
                 den_birth=getView().findViewById(R.id.den_pat_birthday);
                 den_hCard=getView().findViewById(R.id.den_pat_health_number);
                 den_phone=getView().findViewById(R.id.den_pat_phone_number);

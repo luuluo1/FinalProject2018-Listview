@@ -153,7 +153,6 @@ public class pif_den_patientlist extends AppCompatActivity {
                 public void onClick(View view) {
                   Intent i1=new Intent(getApplicationContext(),add_update_den.class);
                     i1.putExtra("EXTRA_SESSION_ID", id);
-
                   startActivity(i1);
                 }
             });
