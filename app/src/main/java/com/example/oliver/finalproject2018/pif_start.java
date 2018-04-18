@@ -68,7 +68,7 @@ Snackbar snackbar;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Hello! Welcome to my program!", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Hello! Welcome to my program!  Yang Luo, 2018.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -87,17 +87,21 @@ Snackbar snackbar;
         {
             case R.id.PIF_about:
 
-                snackbar.make(findViewById(android.R.id.content), "Patient Intake Application By Yang Luo", Snackbar.LENGTH_LONG)
+                snackbar.make(findViewById(android.R.id.content), "Patient Intake Application By Yang Luo" +
+                        "2018 Version 1.0", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Log.d("Toolbar","Option camera selected");
                 break;
             case R.id.PIF_help:
-                Toast toast = Toast.makeText(getApplicationContext(), "This Version 1.0 for patient intake system. 2018", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "This Version 1.0 for patient intake system. 2018." +
+                        "This is a patient intake system. There are three types of patients." +
+                        "Doctor patient, Dental patients, optometrist list. Created by Yang Luo, 2018.", Toast.LENGTH_SHORT);
                 toast.show();
                 break;
             case R.id.Back_to_home_page:
 
-
+                Intent ii=new Intent(getApplicationContext(),StartActivity.class);
+                startActivity(ii);
 
                 break;
             case R.id.PIF_SAMPLEdata:
@@ -106,8 +110,8 @@ Snackbar snackbar;
                 break;
 
             case R.id.go_to_QUIZ:
-
-
+                Intent i2=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i2);
                 break;
 
 
