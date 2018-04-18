@@ -54,4 +54,9 @@
     <string name="pat_clear">"Clean"</string>
     <string name="load_internet">"Load from internet"</string>
 
+    <string name="pif_start">"Patient intake"</string>
+
+    <string name="pif_help">"Help"</string>>
+    <string name="pif_about">"About"</string>
+
 </resources>

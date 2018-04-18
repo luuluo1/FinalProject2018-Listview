@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.oliver.finalproject2018.dummy.PatientDatabaseHelper;
 
@@ -56,11 +57,7 @@ public class update_den extends Fragment {
         return inflater.inflate(R.layout.fragment_update_den,container,false);
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        // Setup any handles to view objects here
-        // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
 
-
-  //      super.onViewCreated(view, savedInstanceState);
 
         den_name=getActivity().findViewById(R.id.u_den_pat_name);
         den_address=getView().findViewById(R.id.u_den_pat_address);
@@ -75,17 +72,18 @@ public class update_den extends Fragment {
         PatientDatabaseHelper pb1=new PatientDatabaseHelper(getContext());
         SQLiteDatabase db1=pb1.getWritableDatabase();
 
-        Cursor cursor=db1.rawQuery("SELECT * FROM DEN_PATIENT WHERE _id = "+String.valueOf(id),null);
+        Cursor cursor=db1.rawQuery("SELECT "+PatientDatabaseHelper.COLUMN_PHONE+","+PatientDatabaseHelper.COLUMN_DESCRIPTION+","+PatientDatabaseHelper.COLUMN_HEALTH_CARD+","+PatientDatabaseHelper.COLUMN_BRACES+","+PatientDatabaseHelper.COLUMN_HEALTH_BENFIT+","+PatientDatabaseHelper.COLUMN_BIRTH+","+PatientDatabaseHelper.COLUMN_ADDRESS+","+PatientDatabaseHelper.COLUMN_DEN_NAME+" FROM DEN_PATIENT WHERE _id = "+String.valueOf(id),null);
 
         cursor.moveToFirst();
             den_name.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_DEN_NAME)));
             den_address.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_ADDRESS)));
             den_birth.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
-//            den_descri.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_DESCRIPTION)));
+
             den_hCard.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_HEALTH_CARD)));
             den_phone.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_PHONE)));
-//            den_bstat.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BRACES)));
- //           den_hstat.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_HEALTH_BENFIT)));
+            den_bstat.setText(cursor.getString(cursor.getColumnIndex("HAVEBRACES")));
+            den_hstat.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_HEALTH_BENFIT)));
+        den_descri.setText(cursor.getString(cursor.getColumnIndex("PATIENTDESCRIPTION")));
 
             Button den_clear_btn=getView().findViewById(R.id.den_pat_clear);
                     den_clear_btn.setOnClickListener(new View.OnClickListener() {
@@ -109,7 +107,7 @@ public class update_den extends Fragment {
         Sub_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+if(validationSuccess()){
                         PatientDatabaseHelper pb=new PatientDatabaseHelper(getContext());
                         SQLiteDatabase db=pb.getWritableDatabase();
                         ContentValues cv=new ContentValues();
@@ -127,10 +125,56 @@ public class update_den extends Fragment {
 
 
                         db.insert(PatientDatabaseHelper.TABLE_DEN_PATIENT,null,cv);
+      Toast.makeText(getActivity(),"Submit Success!",Toast.LENGTH_SHORT).show();
 
                         Intent i1=new Intent(getContext(),pif_den_patientlist.class);
-                        startActivity(i1);
+                        startActivity(i1);} else{}
             }
         });
+    }
+    private Boolean validationSuccess()
+    {
+        if(den_name.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter name",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(den_address.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter address",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(den_phone.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Phone",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(den_hCard.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Health Card Number",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(den_descri.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Description",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(den_bstat.getText().toString().equalsIgnoreCase(""))
+    {
+        Toast.makeText(getActivity(),"Please enter Yes or No for Braces",Toast.LENGTH_SHORT).show();
+        return false;
+    }
+        if(den_hstat.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Yes or No for Health Benefit",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(den_birth.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Birth Date",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

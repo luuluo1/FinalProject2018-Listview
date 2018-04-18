@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Pif_HomePage"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:id="@+id/Back_to_home_page"
+        />
+
+    <item android:title="@string/pif_help"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        app:showAsAction="ifRoom"
+        android:id="@+id/PIF_help"
+        />
+
+    <item android:title="@string/pif_about"
+        app:showAsAction="ifRoom"
+        android:id="@+id/PIF_about"
+        />
+    <item android:title="Load Sample Data"
+        app:showAsAction="ifRoom"
+        android:id="@+id/PIF_SAMPLEdata"
+        />
+</menu>

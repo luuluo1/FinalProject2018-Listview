@@ -19,7 +19,7 @@ public class add_update_doc extends FragmentActivity {
         ud.setdocId(id);
 
 
-    //     ft.replace(R.id.doc_u_holder,ud);
+        ft.replace(R.id.doc_u_holder,ud);
 
         ft.commit();
     }

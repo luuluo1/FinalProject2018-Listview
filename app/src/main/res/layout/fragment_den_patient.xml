@@ -1,8 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-  >
+    android:layout_height="match_parent">
 
 
     <LinearLayout
@@ -101,7 +100,8 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="22dp">
-    <RadioGroup android:orientation="horizontal">
+    <RadioGroup android:id="@+id/brace_stat"
+        android:orientation="horizontal">
             <RadioButton
                 android:id="@+id/den_yes_braces"
                 android:layout_width="wrap_content"
@@ -124,7 +124,8 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <RadioGroup android:orientation="horizontal">
+        <RadioGroup android:orientation="horizontal"
+                        android:id="@+id/hBenStat">
             <RadioButton
                 android:id="@+id/den_yes_hbenefit"
                 android:layout_width="wrap_content"
@@ -137,11 +138,21 @@
                 android:layout_height="wrap_content"
                 android:text="@string/input_no" /></RadioGroup>
 
-            <Button
-                android:id="@+id/den_submit"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Submit" />
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/den_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Submit" />
+                <Button
+                    android:id="@+id/den_pat_clear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pat_clear" />
+            </LinearLayout>
         </GridLayout>
 
 

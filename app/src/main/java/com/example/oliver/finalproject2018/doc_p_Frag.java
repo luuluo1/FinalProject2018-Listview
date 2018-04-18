@@ -1,12 +1,14 @@
 package com.example.oliver.finalproject2018;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,11 +71,27 @@ public class doc_p_Frag extends Fragment    {
         dTxtPhone=getView().findViewById(R.id.doc_pat_phone_number);
         dTxtHCard=getView().findViewById(R.id.doc_pat_health_number);
 
+        Button b1=getView().findViewById(R.id.doc_pat_clear);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dTxtName.setText("");
+                dDescr.setText("");
+                dPre.setText("");
+                dTxtPhone.setText("");
+                dTxtBirth.setText("");
+                dTxtHCard.setText("");
+                dAllergy.setText("");
+                dTxtAddress.setText("");
+
+            }
+        });
 
         sub_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+if (validationSuccess()) {
 
                 PatientDatabaseHelper pd=new PatientDatabaseHelper(getContext());
                 SQLiteDatabase db=pd.getWritableDatabase();
@@ -90,12 +108,62 @@ public class doc_p_Frag extends Fragment    {
                 cv.put(PatientDatabaseHelper.COLUMN_ADDRESS,dTxtAddress.getText().toString());
 
                 db.insert(PatientDatabaseHelper.TABLE_DOC_PATIENT,null,cv);
+    Toast.makeText(getActivity(),"Submit Success!",Toast.LENGTH_SHORT).show();
 
-                Intent i1=new Intent(getContext(),pif_doc_patientlist.class);
-                startActivity(i1);
+    Intent i1=new Intent(getContext(),pif_doc_patientlist.class);
+                startActivity(i1);}
+else {
+
+}
 
             }
         });
+    }
+
+    private Boolean validationSuccess()
+    {
+        if(dTxtName.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter name",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(dTxtAddress.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter address",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(dTxtPhone.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Phone",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(dTxtHCard.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Health Card Number",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(dAllergy.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Allergies",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(dDescr.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Description",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(dPre.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Previous Surgery",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(dTxtBirth.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Birth Date",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
 

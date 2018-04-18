@@ -7,7 +7,7 @@
     tools:context="com.example.oliver.finalproject2018.add_update_doc">
 
 
-    <fragment
+    <FrameLayout
         android:name="com.example.oliver.finalproject2018.doc_p_Frag"
         android:id="@+id/doc_u_holder"
         android:layout_width="match_parent"

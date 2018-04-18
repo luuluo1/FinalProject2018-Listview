@@ -21,6 +21,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.oliver.finalproject2018.R;
@@ -41,7 +42,8 @@ public class den_p_Frag extends Fragment {
      EditText den_phone;
      EditText den_hCard;
      EditText den_descri;
-
+    RadioGroup rg_brces;
+    RadioGroup rg_hBENT;
     RadioButton br_yes;
     RadioButton br_no;
      RadioButton hl_yes;
@@ -109,5 +111,50 @@ public class den_p_Frag extends Fragment {
                 startActivity(i1);
             }
         });
+    }
+    private Boolean validationSuccess()
+    {
+        if(den_name.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter name",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(den_address.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter address",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(den_phone.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Phone",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(den_hCard.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Health Card Number",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(den_descri.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Description",Toast.LENGTH_SHORT).show();
+            return false;
+        } if(rg_brces.getCheckedRadioButtonId()<=0)
+    {
+        Toast.makeText(getActivity(),"Please select an option",Toast.LENGTH_SHORT).show();
+        return false;
+    }
+
+        if(rg_hBENT.getCheckedRadioButtonId()<=0)
+        {
+            Toast.makeText(getActivity(),"Please select an option",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(den_birth.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Birth Date",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.oliver.finalproject2018.add_update_den">
 
-    <fragment
+    <FrameLayout
         android:name="com.example.oliver.finalproject2018.den_p_Frag"
         android:id="@+id/den_u_holder"
         android:layout_width="match_parent"

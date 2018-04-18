@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.oliver.finalproject2018.add_update_opt">
 
-    <fragment
+    <FrameLayout
         android:id="@+id/pt_u_holder"
         android:name="com.example.oliver.finalproject2018.opt_p_Frag"
         android:layout_width="match_parent"

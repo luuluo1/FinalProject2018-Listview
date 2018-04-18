@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.oliver.finalproject2018.R;
 import com.example.oliver.finalproject2018.dummy.Patient;
@@ -77,37 +78,81 @@ public class opt_p_Frag extends Fragment {
       sub_btn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-
-              opt_name=getActivity().findViewById(R.id.opt_pat_name);
-              opt_address=getView().findViewById(R.id.opt_pat_address);
-              opt_birth=getView().findViewById(R.id.opt_pat_birthday);
-              opt_hCard=getView().findViewById(R.id.opt_pat_health_number);
-              opt_glass=getView().findViewById(R.id.opt_pat_glasses_purchase_Date);
-              opt_store=getView().findViewById(R.id.opt_pat_glasses_store);
-              opt_description=getActivity().findViewById(R.id.opt_pat_description);
-              opt_phone=getView().findViewById(R.id.opt_pat_phone_number);
-
-
-
-              PatientDatabaseHelper pdh=new PatientDatabaseHelper(getContext());
-              ContentValues cv=new ContentValues();
-              SQLiteDatabase db=pdh.getWritableDatabase();
+    if(validationSuccess()) {
+        opt_name = getActivity().findViewById(R.id.opt_pat_name);
+        opt_address = getView().findViewById(R.id.opt_pat_address);
+        opt_birth = getView().findViewById(R.id.opt_pat_birthday);
+        opt_hCard = getView().findViewById(R.id.opt_pat_health_number);
+        opt_glass = getView().findViewById(R.id.opt_pat_glasses_purchase_Date);
+        opt_store = getView().findViewById(R.id.opt_pat_glasses_store);
+        opt_description = getActivity().findViewById(R.id.opt_pat_description);
+        opt_phone = getView().findViewById(R.id.opt_pat_phone_number);
 
 
-              cv.put(PatientDatabaseHelper.COLUMN_OPT_NAME,opt_name.getText().toString());
-              cv.put(PatientDatabaseHelper.COLUMN_ADDRESS,opt_address.getText().toString());
-              cv.put(PatientDatabaseHelper.COLUMN_BIRTH,opt_address.getText().toString());
-              cv.put(PatientDatabaseHelper.COLUMN_PHONE,opt_phone.getText().toString());
-              cv.put(PatientDatabaseHelper.COLUMN_DESCRIPTION,opt_description.getText().toString());
-              cv.put(PatientDatabaseHelper.COLUMN_HEALTH_CARD,opt_hCard.getText().toString());
-              cv.put(PatientDatabaseHelper.COLUMN_GLASSES_PURCHASE_DATE,opt_glass.getText().toString());
-              cv.put(PatientDatabaseHelper.COLUMN_GLASSES_STORE,opt_store.getText().toString());
+        PatientDatabaseHelper pdh = new PatientDatabaseHelper(getContext());
+        ContentValues cv = new ContentValues();
+        SQLiteDatabase db = pdh.getWritableDatabase();
 
-              db.insert(PatientDatabaseHelper.TABLE_OPT_PATIENT,null,cv);
-              Intent i1=new Intent(getContext(),pif_opt_patientList.class);
-              startActivity(i1);
-          }
+
+        cv.put(PatientDatabaseHelper.COLUMN_OPT_NAME, opt_name.getText().toString());
+        cv.put(PatientDatabaseHelper.COLUMN_ADDRESS, opt_address.getText().toString());
+        cv.put(PatientDatabaseHelper.COLUMN_BIRTH, opt_address.getText().toString());
+        cv.put(PatientDatabaseHelper.COLUMN_PHONE, opt_phone.getText().toString());
+        cv.put(PatientDatabaseHelper.COLUMN_DESCRIPTION, opt_description.getText().toString());
+        cv.put(PatientDatabaseHelper.COLUMN_HEALTH_CARD, opt_hCard.getText().toString());
+        cv.put(PatientDatabaseHelper.COLUMN_GLASSES_PURCHASE_DATE, opt_glass.getText().toString());
+        cv.put(PatientDatabaseHelper.COLUMN_GLASSES_STORE, opt_store.getText().toString());
+
+        db.insert(PatientDatabaseHelper.TABLE_OPT_PATIENT, null, cv);
+        Intent i1 = new Intent(getContext(), pif_opt_patientList.class);
+        startActivity(i1);
+    }else{}     }
       });
 
+    }
+    private Boolean validationSuccess()
+    {
+        if(opt_name.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter name",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_address.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter address",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_phone.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Phone",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_hCard.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Health Card Number",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_store.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter the store where you purchased the glasses",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_description.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Description",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_glass.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter glasses purchased date",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(opt_birth.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Birth Date",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

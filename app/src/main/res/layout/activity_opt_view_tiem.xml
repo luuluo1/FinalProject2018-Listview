@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_columnWeight="3"
+        android:width="200dp"
         android:text="TextView" />
 
     <TextView
@@ -22,7 +22,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:layout_column="0"
         android:layout_row="1"
-        android:layout_columnWeight="3"
+      android:width="200dp"
         android:text="TextView" />
 
     <Button
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_column="1"
         android:layout_row="0"
-        android:layout_columnWeight="1"
+
         android:text="@string/Update"
         />
 
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_column="1"
-        android:layout_columnWeight="1"
+
         android:layout_row="1"
         android:text="@string/delete" />
 </GridLayout>

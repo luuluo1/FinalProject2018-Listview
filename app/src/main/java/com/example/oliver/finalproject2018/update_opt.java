@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.oliver.finalproject2018.R;
 import com.example.oliver.finalproject2018.dummy.Patient;
@@ -84,10 +85,11 @@ public class update_opt extends Fragment {
             opt_address.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_ADDRESS)));
             opt_birth.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
             opt_hCard.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
-        //    opt_description.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_DESCRIPTION)));
+
             opt_phone.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_PHONE)));
             opt_glass.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_GLASSES_PURCHASE_DATE)));
             opt_store.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_GLASSES_STORE)));
+            opt_description.setText(cursor.getString(cursor.getColumnIndex("PATIENTDESCRIPTION")));
 
             Button clear_btn=getView().findViewById(R.id.opt_pat_clear);
             clear_btn.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +115,7 @@ public class update_opt extends Fragment {
 
 
 
-
+if(validationSuccess()){
                 PatientDatabaseHelper pdh=new PatientDatabaseHelper(getContext());
                 ContentValues cv=new ContentValues();
                 SQLiteDatabase db=pdh.getWritableDatabase();
@@ -128,10 +130,57 @@ public class update_opt extends Fragment {
                 cv.put(PatientDatabaseHelper.COLUMN_GLASSES_STORE,opt_store.getText().toString());
 
                 db.insert(PatientDatabaseHelper.TABLE_OPT_PATIENT,null,cv);
-                Intent i1=new Intent(getContext(),pif_opt_patientList.class);
-                startActivity(i1);
+    Toast.makeText(getActivity(),"Submit Success!",Toast.LENGTH_SHORT).show();
+
+    Intent i1=new Intent(getContext(),pif_opt_patientList.class);
+                startActivity(i1);}
+                else{}
             }
         });
 
+    }private Boolean validationSuccess()
+    {
+        if(opt_name.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter name",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_address.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter address",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_phone.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Phone",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_hCard.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Health Card Number",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_store.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter the store where you purchased the glasses",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_description.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Description",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if(opt_glass.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter glasses purchased date",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(opt_birth.getText().toString().equalsIgnoreCase(""))
+        {
+            Toast.makeText(getActivity(),"Please enter Birth Date",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 }

@@ -19,7 +19,7 @@ public class add_update_den extends FragmentActivity {
 
 
         udd.setdenId(id);
-     //   ft.replace(R.id.den_u_holder, udd);
+        ft.replace(R.id.den_u_holder, udd);
         ft.commit();
     }
 }

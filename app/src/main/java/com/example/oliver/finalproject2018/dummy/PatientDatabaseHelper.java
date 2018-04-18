@@ -38,9 +38,9 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper{
         public static final String COLUMN_BIRTH ="BIRTHDAY";
         public static final String COLUMN_PHONE="PHONE";
         public static final String COLUMN_HEALTH_CARD="HEALTHCARD";
-        public static final String COLUMN_DESCRIPTION=" PATIENTDESCRIPTION";
+        public static final String COLUMN_DESCRIPTION =" PATIENTDESCRIPTION";
 
-        public static final String COLUMN_BRACES =" HAVEBRACES";
+        public static final String COLUMN_BRACES ="HAVEBRACES";
         public static final String COLUMN_HEALTH_BENFIT="HEALTHBENIFIT";
 
         public static final String COLUMN_SURGERIES ="PREVIOUSSURGERIES";

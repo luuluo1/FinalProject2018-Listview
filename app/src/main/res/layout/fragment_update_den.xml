@@ -1,7 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent"
     android:id="@+id/f_u_den"
     tools:context="com.example.oliver.finalproject2018.update_den">
@@ -11,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <TextView
             android:id="@+id/textView1"
@@ -138,9 +136,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/pat_clear" />
         </LinearLayout>
-
-
-
 
     </LinearLayout>
 

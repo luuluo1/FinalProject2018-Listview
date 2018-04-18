@@ -128,11 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pat_clear" />
-            <Button
-                android:id="@+id/opt_load_int"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/load_internet" />
+
         </LinearLayout>
 
     </LinearLayout>
