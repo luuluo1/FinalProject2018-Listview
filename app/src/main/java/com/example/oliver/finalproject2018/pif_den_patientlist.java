@@ -238,6 +238,17 @@ public class pif_den_patientlist extends AppCompatActivity {
                Intent i4=new Intent(getApplicationContext(),pif_opt_patientList.class);
                 startActivity(i4);
                 break;
+
+            case R.id.PIF_den_stat:
+                PatientDatabaseHelper pdSS=new PatientDatabaseHelper(getApplicationContext());
+                SQLiteDatabase sdt=pdSS.getReadableDatabase();
+                int a=pdSS.denmaxAge(sdt);
+                int b=pdSS.denminAge(sdt);
+                int c=pdSS.denavgAge(sdt);
+                snackbar.make(findViewById(android.R.id.content), "The Max age is :"+ a+"; The Min age is : "+ b+"; The Avg age is: "+c , Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Log.d("Toolbar","Option camera selected");
+                break;
         }return true;
     }
 }

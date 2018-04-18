@@ -222,6 +222,17 @@ Snackbar snackbar;
                 i1=new Intent(getApplicationContext(),pif_doc_patientlist.class);
                 startActivity(i1);
                 break;
+
+            case R.id.PIF_opt_stat:
+                PatientDatabaseHelper pdSS=new PatientDatabaseHelper(getApplicationContext());
+                SQLiteDatabase sdt=pdSS.getReadableDatabase();
+                int a=pdSS.optmaxAge(sdt);
+                int b=pdSS.optminAge(sdt);
+                int c=pdSS.optavgAge(sdt);
+                snackbar.make(findViewById(android.R.id.content), "The Max age is :"+ a+"; The Min age is : "+ b+"; The Avg age is: "+c , Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Log.d("Toolbar","Option camera selected");
+                break;
         }return true;
     }
 }

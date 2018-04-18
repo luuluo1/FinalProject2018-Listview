@@ -60,4 +60,6 @@
     <string name="pif_about">"About"</string>
     <string name="Cancel">"Cancel"</string>
 
+    <string name="stat_patient">"Max, Min and Avg ages"</string>
+
 </resources>

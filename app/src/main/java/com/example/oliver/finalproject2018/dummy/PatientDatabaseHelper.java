@@ -112,18 +112,67 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper{
             onCreate(db);
             Log.i("update", "Calling onUpgrade, oldVersion=" + oldVer + " newVersion=" + newVer);
         }
-    public int maxAge(SQLiteDatabase db){
-       //     Cursor c=db.rawQuery();
-        return 0;
+    public int docmaxAge(SQLiteDatabase db){
+
+    Cursor c=db.rawQuery("SELECT MAX(BIRTHDAY) as `MAX` FROM DOC_PATIENT; ",null);
+    c.moveToFirst();
+    int i=2018-Integer.parseInt(c.getString(c.getColumnIndex("MAX")).substring(0, 4));
+        return i;
+    }
+    public int docminAge(SQLiteDatabase db){
+
+        Cursor c=db.rawQuery("SELECT MIN(BIRTHDAY) as `MIN` FROM DOC_PATIENT; ",null);
+        c.moveToFirst();
+        int i=2018-Integer.parseInt(c.getString(c.getColumnIndex("MIN")).substring(0, 4));
+        return i;
     }
 
-    public int avgAge(SQLiteDatabase db){
-    //    Cursor ;
-        return 0;
+    public int docavgAge(SQLiteDatabase db){
+        Cursor c=db.rawQuery("SELECT AVG(BIRTHDAY)as 'AVG' FROM DOC_PATIENT; ",null);
+        c.moveToFirst();
+        int i=2018-Integer.parseInt(c.getString(c.getColumnIndex("AVG")));
+        return i;
     }
-    public int minAge(SQLiteDatabase db){
-       // Cursor c=
-    return 0;
+    public int optminAge(SQLiteDatabase db){
+
+        Cursor c=db.rawQuery("SELECT MIN(BIRTHDAY) as `MIN` FROM OPT_PATIENT; ",null);
+        c.moveToFirst();
+        int i=2018-Integer.parseInt(c.getString(c.getColumnIndex("MIN")).substring(0, 4));
+        return i;
     }
+    public int optmaxAge(SQLiteDatabase db){
+
+        Cursor c=db.rawQuery("SELECT MAX(BIRTHDAY) as `MAX` FROM OPT_PATIENT; ",null);
+        c.moveToFirst();
+        int i=2018-Integer.parseInt(c.getString(c.getColumnIndex("MAX")).substring(0, 4));
+        return i;
+    }
+
+    public int optavgAge(SQLiteDatabase db){
+        Cursor c=db.rawQuery("SELECT AVG(BIRTHDAY)as 'AVG' FROM OPT_PATIENT; ",null);
+        c.moveToFirst();
+        int i=2018-Integer.parseInt(c.getString(c.getColumnIndex("AVG")));
+        return i;
+    }
+    public int denminAge(SQLiteDatabase db){
+        Cursor c=db.rawQuery("SELECT MIN(BIRTHDAY) as `MIN` FROM DEN_PATIENT; ",null);
+        c.moveToFirst();
+        int i=2018-Integer.parseInt(c.getString(c.getColumnIndex("MIN")).substring(0, 4));
+        return i;
+    }
+    public int denmaxAge(SQLiteDatabase db){
+        Cursor c=db.rawQuery("SELECT MAX(BIRTHDAY) as `MAX` FROM DEN_PATIENT; ",null);
+        c.moveToFirst();
+        int i=2018-Integer.parseInt(c.getString(c.getColumnIndex("MAX")).substring(0, 4));
+        return i;
+    }
+
+    public int denavgAge(SQLiteDatabase db){
+        Cursor c=db.rawQuery("SELECT AVG(BIRTHDAY)as 'AVG' FROM DEN_PATIENT; ",null);
+        c.moveToFirst();
+        int i=2018-Integer.parseInt(c.getString(c.getColumnIndex("AVG")));
+        return i;
+    }
+
     }
 

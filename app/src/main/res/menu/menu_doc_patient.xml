@@ -30,4 +30,9 @@
         app:showAsAction="ifRoom"
         android:id="@+id/PIF_SAMPLEdata"
         />
+
+    <item android:title="@string/stat_patient"
+        app:showAsAction="ifRoom"
+        android:id="@+id/PIF_doc_stat"
+        />
 </menu>
