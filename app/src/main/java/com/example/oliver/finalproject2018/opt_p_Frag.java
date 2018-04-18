@@ -29,7 +29,7 @@ public class opt_p_Frag extends Fragment {
     EditText opt_description;
     EditText opt_glass;
     EditText opt_store;
-
+    Button go_back;
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +47,15 @@ public class opt_p_Frag extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Button sub_btn=getView().findViewById(R.id.opt_submit);
+
+        go_back=getView().findViewById(R.id.opt_frag_goback);
+        go_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i1 = new Intent(getContext(), pif_opt_patientList.class);
+                startActivity(i1);
+            }
+        });
 
         Button clear_btn=getView().findViewById(R.id.opt_pat_clear);
 

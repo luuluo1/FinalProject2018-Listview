@@ -41,7 +41,7 @@ public class update_opt extends Fragment {
     EditText opt_description;
     EditText opt_glass;
     EditText opt_store;
-
+    Button go_back;
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +66,14 @@ public class update_opt extends Fragment {
         TextView p_id=getActivity().findViewById(R.id.opt_pat_id);
         p_id.setText("          Patient ID is : "+String.valueOf(id));
 
+go_back=getView().findViewById(R.id.U_opt_pat_goback);
+go_back.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Intent i1=new Intent(getContext(),pif_opt_patientList.class);
+        startActivity(i1);}
 
+});
 
         opt_name=getActivity().findViewById(R.id.opt_pat_name);
         opt_address=getActivity().findViewById(R.id.opt_pat_address);
@@ -129,7 +136,7 @@ if(validationSuccess()){
                 cv.put(PatientDatabaseHelper.COLUMN_GLASSES_PURCHASE_DATE,opt_glass.getText().toString());
                 cv.put(PatientDatabaseHelper.COLUMN_GLASSES_STORE,opt_store.getText().toString());
 
-                db.insert(PatientDatabaseHelper.TABLE_OPT_PATIENT,null,cv);
+    db.update(PatientDatabaseHelper.TABLE_OPT_PATIENT,cv, "_id = ?",new String[]{String.valueOf(id)});
     Toast.makeText(getActivity(),"Submit Success!",Toast.LENGTH_SHORT).show();
 
     Intent i1=new Intent(getContext(),pif_opt_patientList.class);

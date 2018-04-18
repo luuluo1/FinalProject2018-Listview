@@ -49,6 +49,7 @@ public class den_p_Frag extends Fragment {
      RadioButton hl_yes;
      RadioButton hl_no;
 
+     Button go_back;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +67,17 @@ public class den_p_Frag extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Button Sub_btn=getView().findViewById(R.id.den_submit);
+
+        go_back=getView().findViewById(R.id.den_frag_goback);
+        go_back.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent i1=new Intent(getContext(),pif_den_patientlist.class);
+                startActivity(i1);
+            }
+        });
+
 
         Sub_btn.setOnClickListener(new OnClickListener() {
             @Override

@@ -36,7 +36,7 @@ public class update_den extends Fragment {
 
     EditText den_hstat;
     EditText den_bstat;
-
+Button go_back;
     public void setdenId(int id) {
         this.id = id;
     }
@@ -68,7 +68,15 @@ public class update_den extends Fragment {
 
        den_hstat=getView().findViewById(R.id.u_den_pat_HStat);
        den_bstat=getView().findViewById(R.id.u_den_pat_bStat);
+go_back=getView().findViewById(R.id.U_den_pat_goback);
+go_back.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Intent i1=new Intent(getContext(),pif_den_patientlist.class);
+        startActivity(i1);
 
+    }
+});
         PatientDatabaseHelper pb1=new PatientDatabaseHelper(getContext());
         SQLiteDatabase db1=pb1.getWritableDatabase();
 
@@ -120,11 +128,9 @@ if(validationSuccess()){
                         cv.put(PatientDatabaseHelper.COLUMN_PHONE,den_phone.getText().toString());
 
                         cv.put(PatientDatabaseHelper.COLUMN_HEALTH_BENFIT,den_hstat.getText().toString());
-                        cv.put(PatientDatabaseHelper.COLUMN_BRACES,den_hstat.getText().toString());
+                        cv.put("HAVEBRACES",den_bstat.getText().toString());
 
-
-
-                        db.insert(PatientDatabaseHelper.TABLE_DEN_PATIENT,null,cv);
+    db.update(PatientDatabaseHelper.TABLE_DEN_PATIENT,cv, "_id = ?",new String[]{String.valueOf(id)});
       Toast.makeText(getActivity(),"Submit Success!",Toast.LENGTH_SHORT).show();
 
                         Intent i1=new Intent(getContext(),pif_den_patientlist.class);

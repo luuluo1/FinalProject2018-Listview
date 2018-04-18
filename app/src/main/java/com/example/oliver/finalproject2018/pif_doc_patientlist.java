@@ -1,6 +1,7 @@
 package com.example.oliver.finalproject2018;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
@@ -10,15 +11,20 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.CursorAdapter;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.oliver.finalproject2018.dummy.Doc_patient;
 import com.example.oliver.finalproject2018.dummy.Opt_patient;
@@ -28,8 +34,8 @@ import java.util.ArrayList;
 
 public class pif_doc_patientlist extends AppCompatActivity {
 
-
-
+    Snackbar snackbar;
+    Toolbar t1;
     private SQLiteDatabase db;
     private Cursor cursor;
     private ArrayList<String> records;
@@ -39,10 +45,9 @@ public class pif_doc_patientlist extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pif_doc_patientlist);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        setContentView(R.layout.content_pif_doc_patientlist);
+        t1=findViewById(R.id.doc_toolbar);
+        setSupportActionBar(t1);
 
         ListView opt_list=findViewById(R.id.list_doc_patients);
         pb=new PatientDatabaseHelper(getApplicationContext());
@@ -80,14 +85,6 @@ public class pif_doc_patientlist extends AppCompatActivity {
         });
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
     public ArrayList<Doc_patient> getAllPatients(){
          ArrayList<Doc_patient> doc_patients=null;
@@ -141,13 +138,13 @@ public class pif_doc_patientlist extends AppCompatActivity {
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             TextView pat_name = view.findViewById(R.id.Item_view_name);
-            String name = cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_OPT_NAME));
+         final   String name = cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_OPT_NAME));
 
             TextView pat_ID = view.findViewById(R.id.Item_view_ID);
-           final int id = cursor.getInt(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_OPT_PATIENT_ID));
+           final int _id = cursor.getInt(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_OPT_PATIENT_ID));
 
             pat_name.setText(name);
-            pat_ID.setText(String.valueOf(id));
+            pat_ID.setText(String.valueOf(_id));
 
             Button update_btn=view.findViewById(R.id.Update_buttton);
             Button delete_btn=view.findViewById(R.id.Delete_button);
@@ -156,7 +153,7 @@ public class pif_doc_patientlist extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                 Intent i1=new Intent(getApplicationContext(),add_update_doc.class);
-                    i1.putExtra("EXTRA_SESSION_ID", id);
+                    i1.putExtra("EXTRA_SESSION_ID", _id);
 
                 startActivity(i1);
 
@@ -165,12 +162,57 @@ public class pif_doc_patientlist extends AppCompatActivity {
             delete_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    db.delete(PatientDatabaseHelper.TABLE_DOC_PATIENT,PatientDatabaseHelper.COLUMN_DOC_PATIENT_ID+"="+id,null);
-                    notifyDataSetChanged();
-                    recreate();
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(pif_doc_patientlist.this);
+                    String s1="Delete "+name +" 's Record?";
+                    builder.setMessage(s1)
+                            .setPositiveButton(R.string.den_yes_healthb, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    db.delete(PatientDatabaseHelper.TABLE_DOC_PATIENT,PatientDatabaseHelper.COLUMN_DOC_PATIENT_ID+"="+_id,null);
+                                    notifyDataSetChanged();
+                                    recreate();
+                                }
+                            })
+                            .setNegativeButton(R.string.den_no_healthb, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                }
+                            });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
             });
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_doc_patient,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.PIF_about:
+
+                snackbar.make(findViewById(android.R.id.content), "Patient Intake Application By Yang Luo", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Log.d("Toolbar","Option camera selected");
+                break;
+            case R.id.PIF_help:
+                Toast toast = Toast.makeText(getApplicationContext(), "This Version 1.0 for patient intake system. 2018", Toast.LENGTH_SHORT);
+                toast.show();
+            case R.id.Back_to_home_page:
+                Intent i1=new Intent(getApplicationContext(),pif_start.class);
+                startActivity(i1);
+                break;
+            case R.id.PIF_SAMPLEdata:
+                 i1=new Intent(getApplicationContext(),LoadSamplePatient.class);
+                startActivity(i1);
 
 
-    }}
+        }return true;
+    }
+
+}

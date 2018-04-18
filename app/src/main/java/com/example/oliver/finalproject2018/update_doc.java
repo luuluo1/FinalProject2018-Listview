@@ -32,6 +32,7 @@ public class update_doc extends Fragment {
     EditText dPre;
     EditText dAllergy;
     int id;
+    Button go_back;
     private Doc_patientDao doc_patientDao;
 
     public void setdocId(int id) {
@@ -59,7 +60,14 @@ public class update_doc extends Fragment {
 
        // super.onViewCreated(view, savedInstanceState);
         Button sub_btn=getView().findViewById(R.id.u_doc_submit);
-
+go_back=getView().findViewById(R.id.U_doc_pat_goback);
+go_back.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        Intent i1 = new Intent(getContext(), pif_doc_patientlist.class);
+        startActivity(i1);
+    }
+});
 
         dTxtName=getActivity().findViewById(R.id.u_pat_name);
 
@@ -124,7 +132,7 @@ if(validationSuccess()) {
     cv.put(PatientDatabaseHelper.COLUMN_BIRTH, dTxtBirth.getText().toString());
     cv.put(PatientDatabaseHelper.COLUMN_ADDRESS, dTxtAddress.getText().toString());
 
-    db.insert(PatientDatabaseHelper.TABLE_DOC_PATIENT, null, cv);
+    db.update(PatientDatabaseHelper.TABLE_DOC_PATIENT,cv, "_id = ?",new String[]{String.valueOf(id)});
     Toast.makeText(getActivity(),"Submit Success!",Toast.LENGTH_SHORT).show();
 
     Intent i1 = new Intent(getContext(), pif_doc_patientlist.class);

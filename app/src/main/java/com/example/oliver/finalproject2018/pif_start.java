@@ -1,6 +1,7 @@
 package com.example.oliver.finalproject2018;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -61,6 +62,16 @@ Snackbar snackbar;
                 startActivity(i1);
             }
         });
+
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.s_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Hello! Welcome to my program!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 
     @Override
@@ -83,6 +94,7 @@ Snackbar snackbar;
             case R.id.PIF_help:
                 Toast toast = Toast.makeText(getApplicationContext(), "This Version 1.0 for patient intake system. 2018", Toast.LENGTH_SHORT);
                 toast.show();
+                break;
             case R.id.Back_to_home_page:
 
 

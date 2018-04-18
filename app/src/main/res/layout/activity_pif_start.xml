@@ -65,4 +65,11 @@
 
         </RelativeLayout></ScrollView>
 
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/s_fab"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
 </LinearLayout>

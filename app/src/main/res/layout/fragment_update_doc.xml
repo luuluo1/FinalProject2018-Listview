@@ -130,6 +130,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pat_clear" />
+            <Button
+                android:id="@+id/U_doc_pat_goback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Cancel" />
         </LinearLayout>
 
     </LinearLayout>

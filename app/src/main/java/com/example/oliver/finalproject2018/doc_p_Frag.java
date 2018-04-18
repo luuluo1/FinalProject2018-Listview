@@ -35,7 +35,7 @@ public class doc_p_Frag extends Fragment    {
      EditText dDescr;
      EditText dPre;
      EditText dAllergy;
-
+    Button go_back;
     private Doc_patientDao doc_patientDao;
 
     @Override
@@ -60,6 +60,14 @@ public class doc_p_Frag extends Fragment    {
         super.onViewCreated(view, savedInstanceState);
         Button sub_btn=getView().findViewById(R.id.doc_submit);
 
+        go_back=getView().findViewById(R.id.doc_frag_goback);
+        go_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i1=new Intent(getContext(),pif_doc_patientlist.class);
+                startActivity(i1);}
+            }
+        );
 
         dTxtName=getActivity().findViewById(R.id.pat_name);
 

@@ -128,6 +128,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pat_clear" />
+            <Button
+                android:id="@+id/opt_frag_goback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Cancel" />
 
         </LinearLayout>
 

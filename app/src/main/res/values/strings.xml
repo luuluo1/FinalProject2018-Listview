@@ -58,5 +58,6 @@
 
     <string name="pif_help">"Help"</string>>
     <string name="pif_about">"About"</string>
+    <string name="Cancel">"Cancel"</string>
 
 </resources>
