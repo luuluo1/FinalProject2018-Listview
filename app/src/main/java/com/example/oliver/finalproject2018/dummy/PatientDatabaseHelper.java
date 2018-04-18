@@ -112,8 +112,18 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper{
             onCreate(db);
             Log.i("update", "Calling onUpgrade, oldVersion=" + oldVer + " newVersion=" + newVer);
         }
+    public int maxAge(SQLiteDatabase db){
+       //     Cursor c=db.rawQuery();
+        return 0;
+    }
 
-
-
+    public int avgAge(SQLiteDatabase db){
+    //    Cursor ;
+return 0;
+    }
+    public int minAge(SQLiteDatabase db){
+       // Cursor c=
+    return 0;
+    }
     }
 
