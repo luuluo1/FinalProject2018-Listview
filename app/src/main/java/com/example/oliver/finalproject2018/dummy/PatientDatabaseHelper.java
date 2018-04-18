@@ -119,7 +119,7 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper{
 
     public int avgAge(SQLiteDatabase db){
     //    Cursor ;
-return 0;
+        return 0;
     }
     public int minAge(SQLiteDatabase db){
        // Cursor c=

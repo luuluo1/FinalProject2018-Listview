@@ -1,14 +1,12 @@
 package com.example.oliver.finalproject2018;
 
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.oliver.finalproject2018.R;
-import com.example.oliver.finalproject2018.dummy.Doc_patient;
-import com.example.oliver.finalproject2018.dummy.Doc_patientDao;
 import com.example.oliver.finalproject2018.dummy.PatientDatabaseHelper;
-
-import java.util.List;
 
 
 public class doc_p_Frag extends Fragment    {
@@ -36,7 +29,7 @@ public class doc_p_Frag extends Fragment    {
      EditText dPre;
      EditText dAllergy;
     Button go_back;
-    private Doc_patientDao doc_patientDao;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

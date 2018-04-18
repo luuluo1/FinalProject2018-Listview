@@ -45,6 +45,7 @@ Snackbar snackbar;
     private ArrayList<String> records;
     private PatientDatabaseHelper pb;
     private Opt_patient opt_patient;
+    private boolean isTablet = false;
     Toolbar t1;
 
     @Override
@@ -67,7 +68,7 @@ Snackbar snackbar;
         pa.changeCursor(cursor);
         pa.notifyDataSetChanged();
 
-
+        isTablet = (findViewById(R.id.opt_placeholder) != null);
 
 
         ImageButton ib_add_opt=findViewById(R.id.btn_add_opt);
@@ -75,17 +76,19 @@ Snackbar snackbar;
         ib_add_opt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(getApplication().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+                if(isTablet){
+                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.opt_placeholder, new opt_p_Frag());
+                    ft.commit();
+
+                }
+
+                else
                 {
                     // Portrait Mode
                     Intent i1=new Intent(getApplicationContext(),add_opt_p.class);
                     startActivity(i1);
 
-                } else {
-                    // Landscape Mode
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                    ft.replace(R.id.opt_placeholder, new opt_p_Frag());
-                    ft.commit();
                 }
             }
         });
@@ -136,9 +139,21 @@ Snackbar snackbar;
             update_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                Intent i1=new Intent(getApplicationContext(), add_update_opt.class);
-                i1.putExtra("EXTRA_SESSION_ID", _id);
-                startActivity(i1);
+                    if(isTablet) {
+                        // Landscape Mode
+                        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                        update_opt uo=new update_opt(); uo.setPatientId(_id);
+                        ft.replace(R.id.opt_placeholder, uo);
+                        ft.commit();
+                    }
+                   else
+                    {
+                        Intent i1=new Intent(getApplicationContext(), add_update_opt.class);
+                        i1.putExtra("EXTRA_SESSION_ID", _id);
+                        startActivity(i1);
+                    }
+
+
                 }
             }
             );

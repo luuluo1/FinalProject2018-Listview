@@ -1,13 +1,19 @@
 package com.example.oliver.finalproject2018;
 
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Xml;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -22,7 +28,8 @@ import java.net.ProtocolException;
 import java.net.URL;
 
 public class LoadSamplePatient extends AppCompatActivity {
-
+    Snackbar snackbar;
+    Toolbar t1;
     protected static final String ACTIVITY_NAME = "LoadXMLActivity";
     ProgressBar progressBar ;
     private TextView name ;
@@ -51,7 +58,13 @@ public class LoadSamplePatient extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_load_sample_patient);
+
+        t1=(Toolbar) findViewById(R.id.load_toolbar_start);
+
+        setSupportActionBar(t1);
+
         progressBar = findViewById(R.id.loadXML_progressBar);
         name = findViewById(R.id.loadXML_name);
         nameDC=findViewById(R.id.loadXML_doctor_name);
@@ -100,6 +113,7 @@ public class LoadSamplePatient extends AppCompatActivity {
                 int eventType = parser.getEventType();
                 while(eventType!=XmlPullParser.END_DOCUMENT){
                     //Are you currently at a Start Tag？
+                    int i =20;
                     switch(eventType){
                         case XmlPullParser.START_TAG:
                             if(parser.getName().equalsIgnoreCase("patient"))
@@ -107,13 +121,12 @@ public class LoadSamplePatient extends AppCompatActivity {
                             break;
                         case XmlPullParser.TEXT:
                             docName+=parser.getText();
-
-                            onProgressUpdate(20);
+                            onProgressUpdate(50);
                             break;
                         case XmlPullParser.END_TAG:
 
                     }
-                    eventType=parser.next(); Thread.sleep(100);
+                    eventType=parser.next(); Thread.sleep(30);i+=10;
                 }
             }
             catch(Exception e) {e.printStackTrace();}
@@ -130,5 +143,35 @@ public class LoadSamplePatient extends AppCompatActivity {
             nameDC.setText(docName);
             progressBar.setVisibility(View.INVISIBLE);
         }
+    }
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_load_data,menu);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.PIF_about:
+
+                snackbar.make(findViewById(android.R.id.content), "Patient Intake Application By Yang Luo", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Log.d("Toolbar","Option camera selected");
+                break;
+            case R.id.PIF_help:
+                Toast toast = Toast.makeText(getApplicationContext(), "This Version 1.0 for patient intake system. 2018", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+            case R.id.Back_to_home_page:
+                Intent i1=new Intent(getApplicationContext(),pif_start.class);
+                startActivity(i1);
+                break;
+
+
+        }return true;
     }
 }

@@ -42,6 +42,7 @@ public class pif_den_patientlist extends AppCompatActivity {
     private ArrayList<String> records;
     private PatientDatabaseHelper pb;
     private Den_patient den_patient;
+    private boolean isTablet = false;
         Toolbar t1;
 
     @Override
@@ -51,6 +52,7 @@ public class pif_den_patientlist extends AppCompatActivity {
         t1=findViewById(R.id.Den_toolbar);
         setSupportActionBar(t1);
 
+        isTablet = (findViewById(R.id.den_placeholder) != null);
 
         ListView opt_list=findViewById(R.id.list_den_patients);
         pb=new PatientDatabaseHelper(getApplicationContext());
@@ -68,17 +70,17 @@ public class pif_den_patientlist extends AppCompatActivity {
         add_den_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(getApplication().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
+                if(isTablet)
                 {
-                    // Portrait Mode
-                    Intent i1=new Intent(getApplicationContext(),add_den_p.class);
-                    startActivity(i1);
 
-                } else {
-                    // Landscape Mode
                     FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                     ft.replace(R.id.den_placeholder, new den_p_Frag());
                     ft.commit();
+                }  else{
+
+                    Intent i1=new Intent(getApplicationContext(),add_den_p.class);
+                    startActivity(i1);
+
                 }
             }
         });
@@ -148,11 +150,28 @@ public class pif_den_patientlist extends AppCompatActivity {
             Button delete_btn=view.findViewById(R.id.Delete_button);
 
             update_btn.setOnClickListener(new View.OnClickListener() {
+
+
+
                 @Override
                 public void onClick(View view) {
-                  Intent i1=new Intent(getApplicationContext(),add_update_den.class);
-                    i1.putExtra("EXTRA_SESSION_ID", _id);
-                  startActivity(i1);
+                    if(isTablet)
+                    {      FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                        update_den ud=new update_den(); ud.setdenId(_id);
+                        ft.replace(R.id.den_placeholder, ud);
+                        ft.commit();
+
+
+
+                    } else {
+
+                        Intent i1=new Intent(getApplicationContext(),add_update_den.class);
+                        i1.putExtra("EXTRA_SESSION_ID", _id);
+                        startActivity(i1);
+                    }
+
+
+
                 }
             });
             delete_btn.setOnClickListener(new View.OnClickListener() {

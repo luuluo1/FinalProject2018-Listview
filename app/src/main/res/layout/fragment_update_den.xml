@@ -102,7 +102,7 @@
             android:id="@+id/u_den_pat_bStat"
             android:layout_width="300dp"
             android:layout_height="33dp"
-            android:textSize="15dp"
+            android:textSize="16dp"
             />
 
 
@@ -118,7 +118,7 @@
             android:id="@+id/u_den_pat_HStat"
             android:layout_width="300dp"
             android:layout_height="33dp"
-            android:textSize="15dp"
+            android:textSize="16dp"
             />
 
             <LinearLayout

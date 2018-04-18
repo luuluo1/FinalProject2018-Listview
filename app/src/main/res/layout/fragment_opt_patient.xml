@@ -23,7 +23,7 @@
             android:id="@+id/opt_pat_name"
             android:layout_width="300dp"
             android:layout_height="35dp"
-            android:textSize="15dp"
+            android:textSize="13dp"
 
             />
 
@@ -38,7 +38,7 @@
             android:id="@+id/opt_pat_address"
             android:layout_width="300dp"
             android:layout_height="35dp"
-            android:textSize="15dp"
+            android:textSize="13dp"
             />
         <TextView
             android:id="@+id/textView3"
@@ -50,7 +50,7 @@
             android:id="@+id/opt_pat_birthday"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:textSize="15dp"
+            android:textSize="13dp"
             android:hint="@string/input_birthday1" />
 
         <TextView
@@ -63,7 +63,7 @@
             android:id="@+id/opt_pat_phone_number"
             android:layout_width="200dp"
             android:layout_height="35dp"
-            android:textSize="15dp"
+            android:textSize="13dp"
             />
 
         <TextView
@@ -76,7 +76,7 @@
             android:id="@+id/opt_pat_health_number"
             android:layout_width="300dp"
             android:layout_height="35dp"
-            android:textSize="15dp"/>
+            android:textSize="13dp"/>
 
         <TextView
             android:id="@+id/textView6"
@@ -99,7 +99,7 @@
             android:id="@+id/opt_pat_glasses_purchase_Date"
             android:layout_width="300dp"
             android:layout_height="35dp"
-            android:textSize="15dp"
+            android:textSize="13dp"
             />
         <TextView
             android:id="@+id/textView8"
@@ -111,7 +111,7 @@
             android:id="@+id/opt_pat_glasses_store"
             android:layout_width="300dp"
             android:layout_height="35dp"
-            android:textSize="15dp"
+            android:textSize="13dp"
             />
 
         <LinearLayout

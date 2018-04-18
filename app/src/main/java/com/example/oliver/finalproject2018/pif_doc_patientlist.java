@@ -41,6 +41,7 @@ public class pif_doc_patientlist extends AppCompatActivity {
     private ArrayList<String> records;
     private PatientDatabaseHelper pb;
     private Doc_patient doc_patient;
+    private boolean isTablet = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class pif_doc_patientlist extends AppCompatActivity {
         opt_list.setAdapter(pa);
         pa.changeCursor(cursor);
 
+        isTablet = (findViewById(R.id.doc_placeholder) != null);
 
         ListView Pat_list=findViewById(R.id.list_doc_patients);
 
@@ -67,19 +69,19 @@ public class pif_doc_patientlist extends AppCompatActivity {
         to_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(getApplication().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT)
-                {
-                    // Portrait Mode
-                    Intent i1=new Intent(getApplicationContext(),add_doc_p.class);
-                    startActivity(i1);
-
-                } else {
-                    // Landscape Mode
-                    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                if(isTablet)
+                {    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
                     ft.replace(R.id.doc_placeholder, new doc_p_Frag());
 
                     ft.commit();
+
+
+                } else {
+
+                    Intent i1=new Intent(getApplicationContext(),add_doc_p.class);
+                    startActivity(i1);
+
                 }
             }
         });
@@ -152,10 +154,26 @@ public class pif_doc_patientlist extends AppCompatActivity {
             update_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                Intent i1=new Intent(getApplicationContext(),add_update_doc.class);
-                    i1.putExtra("EXTRA_SESSION_ID", _id);
 
-                startActivity(i1);
+                    if(isTablet)
+                    {     FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+                        update_doc ud=new update_doc();
+                        ud.setdocId(_id);
+                        ft.replace(R.id.doc_placeholder, ud);
+
+                        ft.commit();
+
+
+                    } else {
+
+
+                        Intent i1=new Intent(getApplicationContext(),add_update_doc.class);
+                        i1.putExtra("EXTRA_SESSION_ID", _id);
+
+                        startActivity(i1);
+                    }
+
 
                 }  }
             );
