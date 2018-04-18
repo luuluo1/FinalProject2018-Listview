@@ -6,7 +6,16 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:id="@+id/Back_to_home_page"
         />
-
+    <item android:title="OPT"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:id="@+id/do_go_to_Opt_page"
+        />
+    <item android:title="DEN"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:id="@+id/do_go_to_den_page"
+        />
     <item android:title="@string/pif_help"
         android:icon="@drawable/ic_notifications_black_24dp"
         app:showAsAction="ifRoom"

@@ -106,9 +106,8 @@ public class LoadSamplePatient extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String args){
+
             temp.setText(tempStr);
         }
-
-
     }
 }

@@ -198,8 +198,15 @@ Snackbar snackbar;
             case R.id.PIF_SAMPLEdata:
                  i1=new Intent(getApplicationContext(),LoadSamplePatient.class);
                 startActivity(i1);
-
-
+                break;
+            case R.id.op_go_to_den_page:
+                i1=new Intent(getApplicationContext(),pif_den_patientlist.class);
+                startActivity(i1);
+                break;
+            case R.id.op_go_to_doc_page:
+                i1=new Intent(getApplicationContext(),pif_doc_patientlist.class);
+                startActivity(i1);
+                break;
         }return true;
     }
 }

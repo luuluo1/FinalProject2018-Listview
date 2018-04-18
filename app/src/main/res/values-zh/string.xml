@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">FinalProject2018</string>
+    <string name="title_home">“首页”</string>
+    <string name="title_dashboard">“Dashboard”</string>
+    <string name="title_notifications">"通知"</string>
+    <string name="add_patients">”选择类型?“</string>
+    <string name="title_item_list">“项目”</string>
+    <string name="title_item_detail">”明细“</string>>
+
+
+    <string name="doc_pat">”普通“</string>
+    <string name="den_pat">”牙医“</string>
+    <string name="opt_pat">"眼科"</string>
+    <string name="title_activity_pif_doc_patientlist">"普通"</string>
+    <string name="add_patient">"添加病人"</string>
+    <string name="title_activity_pif_opt_patient_list">"眼科"</string>
+    <string name="title_activity_pif_den_patientlist">“牙科”</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_doc_patient_detail">“普通病人资料”</string>
+    <string name="action_settings">“设置”</string>
+
+
+    <string name="patient_name">"姓名"</string>
+    <string name="input_name">"名字"</string>
+    <string name="input_address">"地址"</string>
+    <string name="input_birthday">"生日"</string>
+    <string name="input_birthday1">"xxxx/xx/xx"</string>
+
+    <string name="input_phone_number">"电话"</string>
+    <string name="input_Health_number">"医疗卡号"</string>
+    <string name="input_description">"描述"</string>
+    <string name="input_previous_surg">"手术历史"</string>
+    <string name="input_allergies">"过敏史"</string>
+    <string name="Submit">"提交"</string>
+
+
+    <string name="input_glasses_purchase_Date">"何时购买过眼镜?"</string>
+    <string name="glasses_store">"在哪家店购买?"</string>
+
+    <string name="input_has_Braces">"是否有牙套?"</string>
+    <string name="input_has_H_benefits">"是否有医疗福利?"</string>
+
+    <string name="input_yes">"是"</string>
+    <string name="input_no">"否"</string>
+
+    <string name="den_yes_healthb">"是"</string>
+    <string name="den_no_healthb">"否"</string>
+    <string name="Update">"更新"</string>
+    <string name="delete">"删除"</string>
+
+
+    <string name="pat_clear">"清空"</string>
+    <string name="load_internet">"Load from internet"</string>
+
+    <string name="pif_start">"病人系统"</string>
+
+    <string name="pif_help">"帮助"</string>>
+    <string name="pif_about">"关于"</string>
+    <string name="Cancel">"取消"</string>
+
+</resources>

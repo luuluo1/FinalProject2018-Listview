@@ -6,6 +6,16 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:id="@+id/Back_to_home_page"
         />
+    <item android:title="OPT"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:id="@+id/d_go_to_Opt_page"
+        />
+    <item android:title="DOC"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:id="@+id/d_go_to_Doc_page"
+        />
 
     <item android:title="@string/pif_help"
         android:icon="@drawable/ic_notifications_black_24dp"

@@ -204,17 +204,21 @@ public class pif_den_patientlist extends AppCompatActivity {
                 toast.show();
                 break;
             case R.id.Back_to_home_page:
-
                 Intent i1=new Intent(getApplicationContext(),pif_start.class);
                 startActivity(i1);
-
-
                 break;
             case R.id.PIF_SAMPLEdata:
-                i1=new Intent(getApplicationContext(),LoadSamplePatient.class);
-                startActivity(i1);
-
-
+                Intent i2=new Intent(getApplicationContext(),LoadSamplePatient.class);
+                startActivity(i2);
+                break;
+            case R.id.d_go_to_Doc_page:
+              Intent  i3=new Intent(getApplicationContext(),pif_doc_patientlist.class);
+                startActivity(i3);
+                break;
+            case R.id.d_go_to_Opt_page:
+               Intent i4=new Intent(getApplicationContext(),pif_opt_patientList.class);
+                startActivity(i4);
+                break;
         }return true;
     }
 }
