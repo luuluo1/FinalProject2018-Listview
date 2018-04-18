@@ -103,6 +103,12 @@ Snackbar snackbar;
             case R.id.PIF_SAMPLEdata:
                 Intent i1=new Intent(getApplicationContext(),LoadSamplePatient.class);
                 startActivity(i1);
+                break;
+
+            case R.id.go_to_QUIZ:
+
+
+                break;
 
 
         }return true;
