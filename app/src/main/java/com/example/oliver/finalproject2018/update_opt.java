@@ -91,7 +91,7 @@ go_back.setOnClickListener(new View.OnClickListener() {
             opt_name.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_OPT_NAME)));
             opt_address.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_ADDRESS)));
             opt_birth.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
-            opt_hCard.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_BIRTH)));
+            opt_hCard.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_HEALTH_CARD)));
 
             opt_phone.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_PHONE)));
             opt_glass.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_GLASSES_PURCHASE_DATE)));
@@ -129,7 +129,7 @@ if(validationSuccess()){
 
                 cv.put(PatientDatabaseHelper.COLUMN_OPT_NAME,opt_name.getText().toString());
                 cv.put(PatientDatabaseHelper.COLUMN_ADDRESS,opt_address.getText().toString());
-                cv.put(PatientDatabaseHelper.COLUMN_BIRTH,opt_address.getText().toString());
+                cv.put(PatientDatabaseHelper.COLUMN_BIRTH,opt_birth.getText().toString());
                 cv.put(PatientDatabaseHelper.COLUMN_PHONE,opt_phone.getText().toString());
                 cv.put(PatientDatabaseHelper.COLUMN_DESCRIPTION,opt_description.getText().toString());
                 cv.put(PatientDatabaseHelper.COLUMN_HEALTH_CARD,opt_hCard.getText().toString());

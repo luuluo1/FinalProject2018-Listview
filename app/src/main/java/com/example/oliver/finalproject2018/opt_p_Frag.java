@@ -105,7 +105,7 @@ public class opt_p_Frag extends Fragment {
 
         cv.put(PatientDatabaseHelper.COLUMN_OPT_NAME, opt_name.getText().toString());
         cv.put(PatientDatabaseHelper.COLUMN_ADDRESS, opt_address.getText().toString());
-        cv.put(PatientDatabaseHelper.COLUMN_BIRTH, opt_address.getText().toString());
+        cv.put(PatientDatabaseHelper.COLUMN_BIRTH, opt_birth.getText().toString());
         cv.put(PatientDatabaseHelper.COLUMN_PHONE, opt_phone.getText().toString());
         cv.put(PatientDatabaseHelper.COLUMN_DESCRIPTION, opt_description.getText().toString());
         cv.put(PatientDatabaseHelper.COLUMN_HEALTH_CARD, opt_hCard.getText().toString());

@@ -20,7 +20,7 @@ import android.util.Log;
 public class PatientDatabaseHelper extends SQLiteOpenHelper{
 
     private static final String DATABASE_NAME = "Patient.db";
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 8;
 
         public static final String TABLE_DOC_PATIENT="DOC_PATIENT";
         public static final String TABLE_DEN_PATIENT="DEN_PATIENT";
@@ -53,7 +53,7 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper{
                 + COLUMN_DEN_PATIENT_ID + " INTEGER PRIMARY KEY , "
                 + COLUMN_DEN_NAME + " TEXT , "
                 + COLUMN_ADDRESS + " TEXT , "
-                + COLUMN_BIRTH + " TEXT , "
+                + COLUMN_BIRTH + " DATE , "
                 + COLUMN_PHONE + " TEXT , "
                 + COLUMN_HEALTH_CARD + " TEXT , "
                 + COLUMN_DESCRIPTION + " TEXT , "
@@ -64,7 +64,7 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper{
                 + COLUMN_DOC_PATIENT_ID + " INTEGER PRIMARY KEY , "
                 + COLUMN_DOC_NAME + " TEXT , "
                 + COLUMN_ADDRESS + " TEXT , "
-                + COLUMN_BIRTH + " TEXT , "
+                + COLUMN_BIRTH + " DATE , "
                 + COLUMN_PHONE + " TEXT , "
                 + COLUMN_HEALTH_CARD + " TEXT , "
                 + COLUMN_DESCRIPTION + " TEXT , "
@@ -75,11 +75,11 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper{
             + COLUMN_OPT_PATIENT_ID + " INTEGER PRIMARY KEY, "
             + COLUMN_OPT_NAME + " TEXT , "
             + COLUMN_ADDRESS + " TEXT , "
-            + COLUMN_BIRTH + " TEXT , "
+            + COLUMN_BIRTH + " DATE , "
             + COLUMN_PHONE + " TEXT , "
             + COLUMN_HEALTH_CARD + " TEXT , "
             + COLUMN_DESCRIPTION + " TEXT , "
-            + COLUMN_GLASSES_PURCHASE_DATE + " TEXT , "
+            + COLUMN_GLASSES_PURCHASE_DATE + " DATE , "
             + COLUMN_GLASSES_STORE + " TEXT  );";
 
 
@@ -114,15 +114,6 @@ public class PatientDatabaseHelper extends SQLiteOpenHelper{
         }
 
 
-      String [] opt_columns={COLUMN_OPT_PATIENT_ID,COLUMN_OPT_NAME,COLUMN_ADDRESS,COLUMN_HEALTH_CARD,COLUMN_DESCRIPTION,COLUMN_BIRTH,COLUMN_PHONE,COLUMN_GLASSES_PURCHASE_DATE, COLUMN_GLASSES_STORE};
-    String [] doc_columns={COLUMN_DOC_PATIENT_ID,COLUMN_DOC_NAME,COLUMN_ADDRESS,COLUMN_HEALTH_CARD,COLUMN_DESCRIPTION,COLUMN_BIRTH,COLUMN_PHONE,COLUMN_ALERGIES,COLUMN_SURGERIES};
-    String [] den_columns={COLUMN_DEN_PATIENT_ID,COLUMN_DEN_NAME,COLUMN_ADDRESS,COLUMN_HEALTH_CARD,COLUMN_DESCRIPTION,COLUMN_BIRTH,COLUMN_PHONE,COLUMN_BRACES,COLUMN_HEALTH_BENFIT};
 
-
-    String [] opt_arg={COLUMN_OPT_PATIENT_ID};
-        public Cursor SearchOptbyID(SQLiteDatabase db, int id){
-            Cursor cursor = db.query(PatientDatabaseHelper.TABLE_OPT_PATIENT,opt_columns,"OPT_PATIENT._id = ?",opt_arg,null,null,null);
-            return cursor;
-        }
     }
 
