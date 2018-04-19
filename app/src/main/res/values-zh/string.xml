@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FinalProject2018</string>
+
     <string name="title_home">“首页”</string>
     <string name="title_dashboard">“Dashboard”</string>
     <string name="title_notifications">"通知"</string>
@@ -60,4 +60,37 @@
     <string name="pif_about">"关于"</string>
     <string name="Cancel">"取消"</string>
 
+
+    <string name="app_name">最终项目</string>
+    <string name="button_quzie">问题</string>
+    <string name="button_xml">来源于 Xml</string>
+    <string name="button_state">状态</string>
+    <string name="total_num">问题总数：</string>
+    <string name="longest">最长的问题：</string>
+    <string name="shortest">最短的问题：</string>
+    <string name="average">平均问题长度：</string>
+    <string name="button_help">帮助</string>
+    <string name="addMultiQuest">单选题</string>
+    <string name="addNumQuest">运算题</string>
+    <string name="addTFQuest">判断题</string>
+    <string name="textQust">题目:</string>
+    <string name="textAns">答案:</string>
+    <string name="input_quest">请在此输入内容</string>
+    <string name="input_hite">请在此输入小数并保留2位容</string>
+    <string name="input_acc">请输入精确到小数后几位</string>
+    <string name="submit">提交</string>
+    <string name="cancel">取消</string>
+    <string name="rbt">正确</string>
+    <string name="rbf">错误</string>
+    <string name="add">添加问题</string>
+    <string name="del">删除</string>
+    <string name="update">更新</string>
+    <string name="set_answer">设置问题</string>
+    <string name="author">作者 : 杨闵奕</string>
+    <string name="intro">介绍 :</string>
+    <string name="chose">选中一个类型</string>
+    <string name="textAcc">精确到:</string>
+    <string name="des"> [ 1 ]在Java编程语言中，接口是引用类型，类似于类，
+        [ 2 ]它只能包含常量、方法签名、默认方法、静态方法，和嵌套类型。方法主体仅适用于默认方法和静态方法。
+        [ 3 ]接口不能实例化—它们只能由类实现或由其他接口扩展。</string>
 </resources>

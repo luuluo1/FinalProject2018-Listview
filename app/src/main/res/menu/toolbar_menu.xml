@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/quiz"
+        android:icon="@drawable/icon_quiz"
+        android:orderInCategory="101"
+        android:title="cherry"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/patient"
+        android:title="citrus"
+        android:icon="@drawable/icon_patient"
+        android:orderInCategory="102"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/about"
+        android:orderInCategory="103"
+        android:title="About" />
+</menu>

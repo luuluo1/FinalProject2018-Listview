@@ -199,7 +199,7 @@ Snackbar snackbar;
 
                 snackbar.make(findViewById(android.R.id.content), "Patient Intake Application By Yang Luo", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                Log.d("Toolbar","Option camera selected");
+
                 break;
             case R.id.PIF_help:
                 Toast toast = Toast.makeText(getApplicationContext(), "This Version 1.0 for patient intake system. 2018", Toast.LENGTH_SHORT);
@@ -228,10 +228,9 @@ Snackbar snackbar;
                 SQLiteDatabase sdt=pdSS.getReadableDatabase();
                 int a=pdSS.optmaxAge(sdt);
                 int b=pdSS.optminAge(sdt);
-                int c=pdSS.optavgAge(sdt);
-                snackbar.make(findViewById(android.R.id.content), "The Max age is :"+ a+"; The Min age is : "+ b+"; The Avg age is: "+c , Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                Log.d("Toolbar","Option camera selected");
+             //   int c=pdSS.optavgAge(sdt);
+                Toast toast1 = Toast.makeText(getApplicationContext(), "In optometrist Database. The Max age is :"+ a+"; The Min age is : "+ b , Toast.LENGTH_SHORT);
+                toast1.show();
                 break;
         }return true;
     }

@@ -62,4 +62,46 @@
 
     <string name="stat_patient">"Max, Min and Avg ages"</string>
 
+
+
+    <string name="button_quzie">Quize</string>
+    <string name="button_xml">From Xml</string>
+    <string name="button_state">Statistics</string>
+    <string name="total_num">Total number of questions:</string>
+    <string name="longest">Longest length of questions:</string>
+    <string name="shortest">Shortest length of questions:</string>
+    <string name="average">Average length of questions:</string>
+    <string name="button_help">Help</string>
+    <string name="addMultiQuest">MultiQuest</string>
+    <string name="addNumQuest">NumQuest</string>
+    <string name="addTFQuest">T/F Quest</string>
+    <string name="textQust">Quest:</string>
+    <string name="textAns">Answer:</string>
+    <string name="input_quest">Input question here</string>
+    <string name="input_hite">Input a two digits float</string>
+    <string name="input_acc">Input an accuracy digit</string>
+    <string name="submit">submit</string>
+    <string name="cancel">cancel</string>
+    <string name="rbt">true</string>
+    <string name="rbf">fault</string>
+    <string name="add">Add Quest</string>
+    <string name="del">delete</string>
+    <string name="update">update</string>
+    <string name="set_answer">set anwser</string>
+    <string name="textAcc">Accuracy:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="author">Author : Minyi Yang</string>
+
+    <string name="intro">Instructions : </string>
+    <string name="ok">ok</string>
+    <string name="chose">Chose a type</string>
+    <string name="des">
+        [1] In the Java programming language, an interface is a reference type, similar to a class,
+        [2] that can contain only constants, method signatures, default methods, static methods,
+        and nested types. Method bodies exist only for default methods and static methods.
+        [3] Interfaces cannot be instantiated—they can only be implemented by classes or extended by other interfaces.
+    </string>
+    <string name="title_activity_toolbar">Toolbar</string>
+    <string name="title_activity_test_toolbar">TestToolbar</string>
+
 </resources>

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.oliver.finalproject2018">
     <uses-permission android:name="android.permission.INTERNET" />
+    <supports-screens android:requiresSmallestWidthDp="600" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,14 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity
-            android:name=".pif_start"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="standard">
+
         </activity>
         <activity
             android:name=".pif_opt_patientList"
@@ -37,7 +36,33 @@
         <activity android:name=".add_update_den" />
         <activity android:name=".add_update_opt" />
         <activity android:name=".add_update_doc"/>
-        <activity android:name=".LoadSamplePatient">
+        <activity android:name=".LoadSamplePatient"/>
+
+        <activity
+            android:name=".ListQuestions"
+            android:launchMode="standard" />
+        <activity android:name=".EditeMultiQuest" />
+        <activity android:name=".EditeNumQuest" />
+        <activity android:name=".EditeTFQuest" />
+        <activity android:name=".ShowQuest" />
+        <activity android:name=".DialogStatistics" />
+        <activity android:name=".AsyncTask" />
+        <activity
+            android:name=".TestToolbar"
+            android:label="@string/title_activity_test_toolbar"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+<activity android:name=".pif_start"/>
+        <activity android:name=".StartActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
 
         </activity>
     </application>

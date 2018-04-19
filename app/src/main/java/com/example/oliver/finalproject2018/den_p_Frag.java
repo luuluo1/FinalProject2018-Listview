@@ -63,6 +63,17 @@ public class den_p_Frag extends Fragment {
         // Setup any handles to view objects here
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
 
+        den_name=getActivity().findViewById(R.id.den_pat_name);
+        den_address=getView().findViewById(R.id.den_pat_address);
+        den_descri=getActivity().findViewById(R.id.den_pat_description);
+        den_birth=getView().findViewById(R.id.den_pat_birthday);
+        den_hCard=getView().findViewById(R.id.den_pat_health_number);
+        den_phone=getView().findViewById(R.id.den_pat_phone_number);
+
+        br_yes=getView().findViewById(R.id.den_yes_braces);
+        br_no=getView().findViewById(R.id.den_no_braces);
+        hl_yes=getView().findViewById(R.id.den_yes_hbenefit);
+        hl_no=getView().findViewById(R.id.den_no_hbenefit);
 
         super.onViewCreated(view, savedInstanceState);
 
@@ -82,18 +93,7 @@ public class den_p_Frag extends Fragment {
         Sub_btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                den_name=getActivity().findViewById(R.id.den_pat_name);
-                den_address=getView().findViewById(R.id.den_pat_address);
-                den_descri=getActivity().findViewById(R.id.den_pat_description);
-                den_birth=getView().findViewById(R.id.den_pat_birthday);
-                den_hCard=getView().findViewById(R.id.den_pat_health_number);
-                den_phone=getView().findViewById(R.id.den_pat_phone_number);
-
-                br_yes=getView().findViewById(R.id.den_yes_braces);
-                br_no=getView().findViewById(R.id.den_no_braces);
-                hl_yes=getView().findViewById(R.id.den_yes_hbenefit);
-                hl_no=getView().findViewById(R.id.den_no_hbenefit);
+if(validationSuccess()){
 
 
 
@@ -116,11 +116,11 @@ public class den_p_Frag extends Fragment {
                     cv.put(PatientDatabaseHelper.COLUMN_HEALTH_BENFIT,"Yes");
                  else cv.put(PatientDatabaseHelper.COLUMN_HEALTH_BENFIT,"No");
 
-
                 db.insert(PatientDatabaseHelper.TABLE_DEN_PATIENT,null,cv);
 
                 Intent i1=new Intent(getContext(),pif_den_patientlist.class);
-                startActivity(i1);
+                startActivity(i1);} else{ }
+
             }
         });
     }
@@ -147,21 +147,6 @@ public class den_p_Frag extends Fragment {
             return false;
         }
 
-        if(den_descri.getText().toString().equalsIgnoreCase(""))
-        {
-            Toast.makeText(getActivity(),"Please enter Description",Toast.LENGTH_SHORT).show();
-            return false;
-        } if(rg_brces.getCheckedRadioButtonId()<=0)
-    {
-        Toast.makeText(getActivity(),"Please select an option",Toast.LENGTH_SHORT).show();
-        return false;
-    }
-
-        if(rg_hBENT.getCheckedRadioButtonId()<=0)
-        {
-            Toast.makeText(getActivity(),"Please select an option",Toast.LENGTH_SHORT).show();
-            return false;
-        }
         if(den_birth.getText().toString().equalsIgnoreCase(""))
         {
             Toast.makeText(getActivity(),"Please enter Birth Date",Toast.LENGTH_SHORT).show();

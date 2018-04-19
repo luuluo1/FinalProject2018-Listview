@@ -154,19 +154,15 @@ public class pif_doc_patientlist extends AppCompatActivity {
             update_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     if(isTablet)
                     {     FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
                         update_doc ud=new update_doc();
                         ud.setdocId(_id);
                         ft.replace(R.id.doc_placeholder, ud);
-
                         ft.commit();
 
-
                     } else {
-
 
                         Intent i1=new Intent(getApplicationContext(),add_update_doc.class);
                         i1.putExtra("EXTRA_SESSION_ID", _id);
@@ -213,21 +209,21 @@ public class pif_doc_patientlist extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.PIF_about:
-
                 snackbar.make(findViewById(android.R.id.content), "Patient Intake Application By Yang Luo", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                Log.d("Toolbar","Option camera selected");
                 break;
             case R.id.PIF_help:
                 Toast toast = Toast.makeText(getApplicationContext(), "This Version 1.0 for patient intake system. 2018", Toast.LENGTH_SHORT);
                 toast.show();
+                break;
             case R.id.Back_to_home_page:
                 Intent i1=new Intent(getApplicationContext(),pif_start.class);
                 startActivity(i1);
                 break;
             case R.id.PIF_SAMPLEdata:
-                 i1=new Intent(getApplicationContext(),LoadSamplePatient.class);
-                startActivity(i1);
+               Intent  i2=new Intent(getApplicationContext(),LoadSamplePatient.class);
+                startActivity(i2);
+                break;
             case R.id.do_go_to_den_page:
                 Intent  i3=new Intent(getApplicationContext(),pif_den_patientlist.class);
                 startActivity(i3);
@@ -241,8 +237,8 @@ public class pif_doc_patientlist extends AppCompatActivity {
                 SQLiteDatabase sdt=pdSS.getReadableDatabase();
                 int a=pdSS.docmaxAge(sdt);
                 int b=pdSS.docminAge(sdt);
-                int c=pdSS.docavgAge(sdt);
-                snackbar.make(findViewById(android.R.id.content), "The Max age is :"+ a+"; The Min age is : "+ b+"; The Avg age is: "+c , Snackbar.LENGTH_LONG)
+           //     int c=pdSS.docavgAge(sdt);
+                snackbar.make(findViewById(android.R.id.content), "In Doctor database. The Max age is :"+ a+"; The Min age is : "+ b , Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Log.d("Toolbar","Option camera selected");
                 break;

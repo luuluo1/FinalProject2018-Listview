@@ -19,9 +19,6 @@ import android.widget.Toast;
 
 import com.example.oliver.finalproject2018.dummy.PatientDatabaseHelper;
 
-
-
-
 public class update_den extends Fragment {
 
     int id;
@@ -91,7 +88,7 @@ go_back.setOnClickListener(new View.OnClickListener() {
             den_phone.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_PHONE)));
             den_bstat.setText(cursor.getString(cursor.getColumnIndex("HAVEBRACES")));
             den_hstat.setText(cursor.getString(cursor.getColumnIndex(PatientDatabaseHelper.COLUMN_HEALTH_BENFIT)));
-        den_descri.setText(cursor.getString(cursor.getColumnIndex("PATIENTDESCRIPTION")));
+            den_descri.setText(cursor.getString(cursor.getColumnIndex("PATIENTDESCRIPTION")));
 
             Button den_clear_btn=getView().findViewById(R.id.den_pat_clear);
                     den_clear_btn.setOnClickListener(new View.OnClickListener() {
